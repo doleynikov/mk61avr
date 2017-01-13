@@ -1,6 +1,6 @@
 # Hey Emacs, this is a -*- makefile -*-
 #----------------------------------------------------------------------------
-# WinAVR Makefile Template written by Eric B. Weddington, Jörg Wunsch, et al.
+# WinAVR Makefile Template written by Eric B. Weddington, Jï¿½rg Wunsch, et al.
 #
 # Released to the Public Domain
 #
@@ -41,7 +41,7 @@
 
 
 # MCU name
-MCU = atmega32
+MCU = atmega8
 
 
 # Processor frequency.
@@ -166,6 +166,7 @@ CFLAGS += -Wa,-adhlns=$(<:%.c=$(OBJDIR)/%.lst)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 CFLAGS += $(CSTANDARD)
 
+CFLAGS += -D__AVR_LIBC_DEPRECATED_ENABLE__
 
 #---------------- Compiler Options C++ ----------------
 #  -g*:          generate debugging information
