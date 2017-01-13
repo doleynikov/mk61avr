@@ -1,16 +1,10 @@
 // ***********************************************************
 // Project: Эмулятор программируемого калькулятора МК-61 на AVR:
-// http://code.google.com/p/mk61avr/
+// https://github.com/doleynikov/mk61avr
 //
-// Получить локальную копию проекта из GIT:
-// git clone https://code.google.com/p/mk61avr/
+// Copyright (с) 2017 Алексей Сугоняев, Виталий Самуров, Дмитрий Олейников
 //
-// Дискуссия по проекту в Google Groups:
-// http://groups.google.com/group/mk61avr_talks
-//
-// Copyright (C) 2009-2011 Алексей Сугоняев, Виталий Самуров
-//
-// Module name: scancode_dc.c
+// Module name: scan_dc.c
 //
 // Module description:
 //
