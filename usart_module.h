@@ -1,8 +1,8 @@
 // ***********************************************************
-// Project: Эмулятор программируемого калькулятора МК-61 на AVR:
+// Project: Р­РјСѓР»СЏС‚РѕСЂ РїСЂРѕРіСЂР°РјРјРёСЂСѓРµРјРѕРіРѕ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° РњРљ-61 РЅР° AVR:
 // https://github.com/doleynikov/mk61avr
 //
-// Copyright (с) 2017 Алексей Сугоняев, Виталий Самуров, Дмитрий Олейников
+// Copyright (СЃ) 2017 РђР»РµРєСЃРµР№ РЎСѓРіРѕРЅСЏРµРІ, Р’РёС‚Р°Р»РёР№ РЎР°РјСѓСЂРѕРІ, Р”РјРёС‚СЂРёР№ РћР»РµР№РЅРёРєРѕРІ
 //
 // Module name: uart_module.h
 //
@@ -31,11 +31,11 @@
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 
-// прерывания обслуживаемые в модуле
+// РїСЂРµСЂС‹РІР°РЅРёСЏ РѕР±СЃР»СѓР¶РёРІР°РµРјС‹Рµ РІ РјРѕРґСѓР»Рµ
 SIGNAL (SIG_UART_DATA);
 SIGNAL (SIG_UART_RECV);
 
-// процедуры модуля
+// РїСЂРѕС†РµРґСѓСЂС‹ РјРѕРґСѓР»СЏ
 extern void putsrom_UART(char* PROGMEM pPTR);
 extern void putsram_UART(char* pPTR);
 extern unsigned char *GetLine_UART(void);

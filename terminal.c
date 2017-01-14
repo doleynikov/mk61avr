@@ -1,8 +1,8 @@
 // ***********************************************************
-// Project: Эмулятор программируемого калькулятора МК-61 на AVR:
+// Project: Р­РјСѓР»СЏС‚РѕСЂ РїСЂРѕРіСЂР°РјРјРёСЂСѓРµРјРѕРіРѕ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° РњРљ-61 РЅР° AVR:
 // https://github.com/doleynikov/mk61avr
 //
-// Copyright (с) 2017 Алексей Сугоняев, Виталий Самуров, Дмитрий Олейников
+// Copyright (СЃ) 2017 РђР»РµРєСЃРµР№ РЎСѓРіРѕРЅСЏРµРІ, Р’РёС‚Р°Р»РёР№ РЎР°РјСѓСЂРѕРІ, Р”РјРёС‚СЂРёР№ РћР»РµР№РЅРёРєРѕРІ
 //
 // Module name: terminal.c
 //
@@ -59,7 +59,7 @@ cCommand shell[15] PROGMEM =
     {('i'<<1)|0x01,LoadFlash}
 };
 
-// Для отладки по RS232
+// Р”Р»СЏ РѕС‚Р»Р°РґРєРё РїРѕ RS232
 char dump[24+24+7];
 
 
@@ -70,7 +70,7 @@ Input:    signed char par
 
 Returns:  unsigned char
 
-    Управление VM61
+    РЈРїСЂР°РІР»РµРЅРёРµ VM61
 *************************************************************************/
 unsigned char Ctrl_rs232(signed char par)
 {
@@ -109,7 +109,7 @@ Input:    signed char par
 
 Returns:  unsigned char
 
-    Загрузка программы из терминала по протоколу X-modem
+    Р—Р°РіСЂСѓР·РєР° РїСЂРѕРіСЂР°РјРјС‹ РёР· С‚РµСЂРјРёРЅР°Р»Р° РїРѕ РїСЂРѕС‚РѕРєРѕР»Сѓ X-modem
 *************************************************************************/
 unsigned char Load_rs232(signed char par)
 {
@@ -136,7 +136,7 @@ unsigned char Regs_rs232(signed char par)
         dump[2] = HEX(tmp&0x0F);
         dump[3] = '=';
         asm("push r16");
-        dtostrf(*pRg++,LIMIT_NUMERIC,LIMIT_NUMERIC-1,&dump[4]);  // Засранка гробит R16
+        dtostrf(*pRg++,LIMIT_NUMERIC,LIMIT_NUMERIC-1,&dump[4]);  // Р—Р°СЃСЂР°РЅРєР° РіСЂРѕР±РёС‚ R16
         asm("pop r16");
         dump[4+LIMIT_NUMERIC] = '\r';
         dump[4+LIMIT_NUMERIC+1] = 0x00;
@@ -242,10 +242,10 @@ unsigned char SaveFlash(signed char par)
     }
     else
     {
-        // Сохраним программу МК61 в EEPROM
+        // РЎРѕС…СЂР°РЅРёРј РїСЂРѕРіСЂР°РјРјСѓ РњРљ61 РІ EEPROM
         BlockWrEEPROM((unsigned char*) EEPROM_MK61PRG,(unsigned char*) &MK61.prg[0], 105);
 
-        // Сохраним регистры памяти в EEPROM
+        // РЎРѕС…СЂР°РЅРёРј СЂРµРіРёСЃС‚СЂС‹ РїР°РјСЏС‚Рё РІ EEPROM
         BlockWrEEPROM((unsigned char*) EEPROM_MK61PRG+105,(unsigned char*) &MK61.reg[0], sizeof(MK61.reg));
     }
 
@@ -268,10 +268,10 @@ unsigned char LoadFlash(signed char par)
     }
     else
     {
-        // Считаем программу МК61 в EEPROM
+        // РЎС‡РёС‚Р°РµРј РїСЂРѕРіСЂР°РјРјСѓ РњРљ61 РІ EEPROM
         BlockRdEEPROM((unsigned char*) EEPROM_MK61PRG,(unsigned char*) &MK61.prg[0], 105);
 
-        // Считаем регистры памяти в EEPROM
+        // РЎС‡РёС‚Р°РµРј СЂРµРіРёСЃС‚СЂС‹ РїР°РјСЏС‚Рё РІ EEPROM
         BlockRdEEPROM((unsigned char*) EEPROM_MK61PRG+105,(unsigned char*) &MK61.reg[0], sizeof(double[15]));
     }
 
@@ -322,7 +322,7 @@ Input:    unsigned char *pCmd
 
 Returns:  void*
 
-    Исполнить команду pCmd в интерпритаторе команд терминала
+    РСЃРїРѕР»РЅРёС‚СЊ РєРѕРјР°РЅРґСѓ pCmd РІ РёРЅС‚РµСЂРїСЂРёС‚Р°С‚РѕСЂРµ РєРѕРјР°РЅРґ С‚РµСЂРјРёРЅР°Р»Р°
 *************************************************************************/
 unsigned char ExecuteShell(unsigned char *pCmd)
 {
@@ -335,10 +335,10 @@ unsigned char ExecuteShell(unsigned char *pCmd)
     }
     else
     {
-        CmdCall = (shellcall*) SeekCmd(*pCmd++); // Обработчик команды из стурктуры shell
+        CmdCall = (shellcall*) SeekCmd(*pCmd++); // РћР±СЂР°Р±РѕС‚С‡РёРє РєРѕРјР°РЅРґС‹ РёР· СЃС‚СѓСЂРєС‚СѓСЂС‹ shell
     }
 
-    par = -1;   // Если параметр не задан в командной строке значит он равен -1
+    par = -1;   // Р•СЃР»Рё РїР°СЂР°РјРµС‚СЂ РЅРµ Р·Р°РґР°РЅ РІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРµ Р·РЅР°С‡РёС‚ РѕРЅ СЂР°РІРµРЅ -1
     if(*pCmd)
     {
         par = atoc(pCmd);

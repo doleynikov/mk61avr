@@ -1,22 +1,10 @@
 // ***********************************************************
-// Project: Эмулятор программируемого калькулятора МК-61 на AVR:
-// http://code.google.com/p/mk61avr/
+// Project: Р­РјСѓР»СЏС‚РѕСЂ РїСЂРѕРіСЂР°РјРјРёСЂСѓРµРјРѕРіРѕ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° РњРљ-61 РЅР° AVR:
+// https://github.com/doleynikov/mk61avr
 //
-// Получить локальную копию проекта из GIT:
-// git clone https://code.google.com/p/mk61avr/
+// Copyright (СЃ) 2017 РђР»РµРєСЃРµР№ РЎСѓРіРѕРЅСЏРµРІ, Р’РёС‚Р°Р»РёР№ РЎР°РјСѓСЂРѕРІ, Р”РјРёС‚СЂРёР№ РћР»РµР№РЅРёРєРѕРІ
 //
-// Дискуссия по проекту в Google Groups:
-// http://groups.google.com/group/mk61avr_talks
-//
-// Copyright (C) 2009-2011 Алексей Сугоняев, Виталий Самуров
-//
-// ============= Disclaimer: =============
-// this code is based on HD44780U LCD library:
-// http://homepage.hispeed.ch/peterfleury/avr-lcd44780.html
-// Author: Peter Fleury <pfleury@gmx.ch>  http://jump.to/fleury
-// =======================================
-//
-// Module name: lcd.h
+// Module name: micro_os.h
 //
 // Module description:
 //

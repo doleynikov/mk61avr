@@ -1,16 +1,16 @@
 // ***********************************************************
-// Project: Эмулятор программируемого калькулятора МК-61 на AVR:
+// Project: Р­РјСѓР»СЏС‚РѕСЂ РїСЂРѕРіСЂР°РјРјРёСЂСѓРµРјРѕРіРѕ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° РњРљ-61 РЅР° AVR:
 // https://github.com/doleynikov/mk61avr
 //
-// Copyright (с) 2017 Алексей Сугоняев, Виталий Самуров, Дмитрий Олейников
+// Copyright (СЃ) 2017 РђР»РµРєСЃРµР№ РЎСѓРіРѕРЅСЏРµРІ, Р’РёС‚Р°Р»РёР№ РЎР°РјСѓСЂРѕРІ, Р”РјРёС‚СЂРёР№ РћР»РµР№РЅРёРєРѕРІ
 //
 // Module name: store.c
 //
 // Module description:
-//      Модуль работы с внешним хранилищем (I2C EEPROM);
-//      простейшая файловая система. Для быстроты форматирования
-//      требуется переписать заголовок EEPROM,
-//      обнулив счетчик. Модуль внешней памяти EEPROM
+//      РњРѕРґСѓР»СЊ СЂР°Р±РѕС‚С‹ СЃ РІРЅРµС€РЅРёРј С…СЂР°РЅРёР»РёС‰РµРј (I2C EEPROM);
+//      РїСЂРѕСЃС‚РµР№С€Р°СЏ С„Р°Р№Р»РѕРІР°СЏ СЃРёСЃС‚РµРјР°. Р”Р»СЏ Р±С‹СЃС‚СЂРѕС‚С‹ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ
+//      С‚СЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµРїРёСЃР°С‚СЊ Р·Р°РіРѕР»РѕРІРѕРє EEPROM,
+//      РѕР±РЅСѓР»РёРІ СЃС‡РµС‚С‡РёРє. РњРѕРґСѓР»СЊ РІРЅРµС€РЅРµР№ РїР°РјСЏС‚Рё EEPROM
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,7 @@ const sMBR STD_MBR PROGMEM =
     {'m','k','6','1','a','v','r','.','S','T','O','R','E',0x00,0x00}, 0, sizeof(sMBR), 0
 };
 
-unsigned char StoreBuff[64];  // Буфер для работы с файловой системой
+unsigned char StoreBuff[64];  // Р‘СѓС„РµСЂ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С„Р°Р№Р»РѕРІРѕР№ СЃРёСЃС‚РµРјРѕР№
 sMBR STORE_MBR;
 
 #ifdef DEBUG_STORE
@@ -133,7 +133,7 @@ Input:    unsigned char FileNum
 
 Returns:  signed char
 
-    Открыть файл - найти файл и заполнить структуру FILE данными
+    РћС‚РєСЂС‹С‚СЊ С„Р°Р№Р» - РЅР°Р№С‚Рё С„Р°Р№Р» Рё Р·Р°РїРѕР»РЅРёС‚СЊ СЃС‚СЂСѓРєС‚СѓСЂСѓ FILE РґР°РЅРЅС‹РјРё
 *************************************************************************/
 signed char STORE_fopen(unsigned char FileNum, FILE *file)
 {
@@ -153,13 +153,13 @@ signed char STORE_fopen(unsigned char FileNum, FILE *file)
             return -1;
         }
 
-        // Чтение прошло без ошибки
+        // Р§С‚РµРЅРёРµ РїСЂРѕС€Р»Рѕ Р±РµР· РѕС€РёР±РєРё
         tmp = (int) &StoreBuff;
         do
         {
             if(((FILE*) tmp)->Num == FileNum)
             {
-                // Файл найден заполним структуру file
+                // Р¤Р°Р№Р» РЅР°Р№РґРµРЅ Р·Р°РїРѕР»РЅРёРј СЃС‚СЂСѓРєС‚СѓСЂСѓ file
                 memcpy(file,(void*) tmp,sizeof(FILE));
                 return 0;
             }
@@ -183,7 +183,7 @@ Input:    unsigned int pStore
 
 Returns:  unsigned int
 
-    Буферезированная запись участка памяти в STORE
+    Р‘СѓС„РµСЂРµР·РёСЂРѕРІР°РЅРЅР°СЏ Р·Р°РїРёСЃСЊ СѓС‡Р°СЃС‚РєР° РїР°РјСЏС‚Рё РІ STORE
 *************************************************************************/
 unsigned int STORE_buffered_write(unsigned int pStore, void *pMem, unsigned int Size)
 {
@@ -191,7 +191,7 @@ unsigned int STORE_buffered_write(unsigned int pStore, void *pMem, unsigned int 
 
     do
     {
-        memcpy(&StoreBuff, pMem, sizeof(StoreBuff));  // скопируем в буфер содержимое страницы кода длинной в размер буфера
+        memcpy(&StoreBuff, pMem, sizeof(StoreBuff));  // СЃРєРѕРїРёСЂСѓРµРј РІ Р±СѓС„РµСЂ СЃРѕРґРµСЂР¶РёРјРѕРµ СЃС‚СЂР°РЅРёС†С‹ РєРѕРґР° РґР»РёРЅРЅРѕР№ РІ СЂР°Р·РјРµСЂ Р±СѓС„РµСЂР°
         ret = ee24xx_write_bytes(
                     STORE_DEVICE,
                     pStore,
@@ -229,18 +229,18 @@ void STORE_fwrite(unsigned char FileNum, unsigned char SizeCode)
     register unsigned int first = tmp;
      FILE pFile;
 
-    // Готовим запись о файле
-    pFile.Start    = tmp;        //  адресс размещение в STORE
-    pFile.CodeSize = SizeCode;   //  длину кода
-    pFile.Num      = FileNum;    //  номер-имя файла
+    // Р“РѕС‚РѕРІРёРј Р·Р°РїРёСЃСЊ Рѕ С„Р°Р№Р»Рµ
+    pFile.Start    = tmp;        //  Р°РґСЂРµСЃСЃ СЂР°Р·РјРµС‰РµРЅРёРµ РІ STORE
+    pFile.CodeSize = SizeCode;   //  РґР»РёРЅСѓ РєРѕРґР°
+    pFile.Num      = FileNum;    //  РЅРѕРјРµСЂ-РёРјСЏ С„Р°Р№Р»Р°
 
-    // Запишем кодовую страницу
+    // Р—Р°РїРёС€РµРј РєРѕРґРѕРІСѓСЋ СЃС‚СЂР°РЅРёС†Сѓ
     tmp = STORE_buffered_write(tmp, pSrc, SizeCode);
 
-    // Теперь необходимо записать остатки
+    // РўРµРїРµСЂСЊ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РїРёСЃР°С‚СЊ РѕСЃС‚Р°С‚РєРё
     tmp = STORE_buffered_write(tmp, &MK61.label, sizeof(sMK61)-sizeof(MK61.prg));
 
-    // Записать запись о файле
+    // Р—Р°РїРёСЃР°С‚СЊ Р·Р°РїРёСЃСЊ Рѕ С„Р°Р№Р»Рµ
     STORE_buffered_write(STORE_MBR.FRLast, &pFile, sizeof(FILE));
     STORE_MBR.FLast = first;
     STORE_MBR.FRLast += sizeof(FILE);

@@ -1,18 +1,12 @@
 // ***********************************************************
-// Project: Эмулятор программируемого калькулятора МК-61 на AVR:
-// http://code.google.com/p/mk61avr/
+// Project: Р­РјСѓР»СЏС‚РѕСЂ РїСЂРѕРіСЂР°РјРјРёСЂСѓРµРјРѕРіРѕ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° РњРљ-61 РЅР° AVR:
+// https://github.com/doleynikov/mk61avr
 //
-// Получить локальную копию проекта из GIT:
-// git clone https://code.google.com/p/mk61avr/
-//
-// Дискуссия по проекту в Google Groups:
-// http://groups.google.com/group/mk61avr_talks
-//
-// Copyright (C) 2009-2011 Алексей Сугоняев, Виталий Самуров
+// Copyright (СЃ) 2017 РђР»РµРєСЃРµР№ РЎСѓРіРѕРЅСЏРµРІ, Р’РёС‚Р°Р»РёР№ РЎР°РјСѓСЂРѕРІ, Р”РјРёС‚СЂРёР№ РћР»РµР№РЅРёРєРѕРІ
 //
 // Module name: config.h
 //
-// Module description: Конфигурационный файл проекта
+// Module description:
 //
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,11 +28,11 @@
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 
-#define DEBUG                       // Ключ вывода вспомогательной отладочной информации!!!
+#define DEBUG                       // РљР»СЋС‡ РІС‹РІРѕРґР° РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕР№ РѕС‚Р»Р°РґРѕС‡РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё!!!
 
-//#define DEBUG_SCAN_DECODER        // Ключ вывода отладочной информации по модулю декодера скан-кода
+//#define DEBUG_SCAN_DECODER        // РљР»СЋС‡ РІС‹РІРѕРґР° РѕС‚Р»Р°РґРѕС‡РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё РїРѕ РјРѕРґСѓР»СЋ РґРµРєРѕРґРµСЂР° СЃРєР°РЅ-РєРѕРґР°
 
-#define DEBUG_STORE                 // Ключ вывода отладочной информации по модулю хранилища программ STORE
+#define DEBUG_STORE                 // РљР»СЋС‡ РІС‹РІРѕРґР° РѕС‚Р»Р°РґРѕС‡РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё РїРѕ РјРѕРґСѓР»СЋ С…СЂР°РЅРёР»РёС‰Р° РїСЂРѕРіСЂР°РјРј STORE
 
 #define LIMIT_NUMERIC 11
 
@@ -46,9 +40,9 @@
 
 #define RC_OSC_CALIBRATE            // TODO
 
-//#define MK61_KEYPAD_IN_USE            // Используется клавиатура от МК61
+//#define MK61_KEYPAD_IN_USE            // РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РєР»Р°РІРёР°С‚СѓСЂР° РѕС‚ РњРљ61
 
-#define LCD_CONTRAST_MAX          // Контрастность максимал
+#define LCD_CONTRAST_MAX          // РљРѕРЅС‚СЂР°СЃС‚РЅРѕСЃС‚СЊ РјР°РєСЃРёРјР°Р»
 
 #endif // _CONFIG_H_
 

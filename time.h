@@ -1,8 +1,8 @@
 // ***********************************************************
-// Project: Эмулятор программируемого калькулятора МК-61 на AVR:
+// Project: Р­РјСѓР»СЏС‚РѕСЂ РїСЂРѕРіСЂР°РјРјРёСЂСѓРµРјРѕРіРѕ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° РњРљ-61 РЅР° AVR:
 // https://github.com/doleynikov/mk61avr
 //
-// Copyright (с) 2017 Алексей Сугоняев, Виталий Самуров, Дмитрий Олейников
+// Copyright (СЃ) 2017 РђР»РµРєСЃРµР№ РЎСѓРіРѕРЅСЏРµРІ, Р’РёС‚Р°Р»РёР№ РЎР°РјСѓСЂРѕРІ, Р”РјРёС‚СЂРёР№ РћР»РµР№РЅРёРєРѕРІ
 //
 // Module name: time.h
 //
@@ -28,26 +28,26 @@
 #ifndef _TIME_CLASS_H_
 #define _TIME_CLASS_H_
 
-#define TIME_1sec           200   // 1 сек
-#define TIME_400ms          80    // 0,4 сек
-#define TIME_200ms          40    // 0,2 сек
-#define TIME_150ms          30    // 0,15 сек
-#define TIME_10ms           2     // 0.01 сек
-#define TIME_5ms            1     // 0.005 сек
+#define TIME_1sec           200   // 1 СЃРµРє
+#define TIME_400ms          80    // 0,4 СЃРµРє
+#define TIME_200ms          40    // 0,2 СЃРµРє
+#define TIME_150ms          30    // 0,15 СЃРµРє
+#define TIME_10ms           2     // 0.01 СЃРµРє
+#define TIME_5ms            1     // 0.005 СЃРµРє
 
 #define MAX_TASK            5
 #define TIME_REPEATED_TASK  0x00
 #define TIME_DISPOSABLE_TASK 0x01
 
-// Характеристики задач
+// РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё Р·Р°РґР°С‡
 #define TIME_TASK_EMPTY     0x40
 #define TIME_TASK_SKIP      0x80
 #define TIME_TASK_UNITARY   0x01
 
 #define TIMER_COMPARE_CONST 625
 
-typedef void (TaskCall)(void);  // Тип вызова задачи
-typedef long int TTime;         // Тип переменной для хранения и обработки времени в ОС
+typedef void (TaskCall)(void);  // РўРёРї РІС‹Р·РѕРІР° Р·Р°РґР°С‡Рё
+typedef long int TTime;         // РўРёРї РїРµСЂРµРјРµРЅРЅРѕР№ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Рё РѕР±СЂР°Р±РѕС‚РєРё РІСЂРµРјРµРЅРё РІ РћРЎ
 
 typedef struct
 {
@@ -82,7 +82,7 @@ typedef union
     unsigned char v[4];
 } uTimeAction;
 
-// Элемент очереди задач планировщика по времени
+// Р­Р»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё Р·Р°РґР°С‡ РїР»Р°РЅРёСЂРѕРІС‰РёРєР° РїРѕ РІСЂРµРјРµРЅРё
 typedef struct
 {
     uTimeAction TimeMark;
