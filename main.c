@@ -115,7 +115,7 @@ const char aMemStartLine[] PROGMEM = "%x. ";
 const char aProgramLine[]  PROGMEM = "%x:%x:%x:%x";
 const char aKbdExecEvent[] PROGMEM = "\rrun";
 
-unsigned char PROGMEM MK61op[16] =
+const unsigned char PROGMEM MK61op[16] =
 /* *    +    ,    -    .    /    0    1    2    3    4    5    6    7    8    9 */
  {0x12,0x10,0x54,0x11,0x0A,0x13,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09};
 
