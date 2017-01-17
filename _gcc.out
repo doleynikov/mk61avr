@@ -1,0 +1,135 @@
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=scan_dc.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings scan_dc.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > scan_dc.d; \
+	[ -s scan_dc.d ] || rm -f scan_dc.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=twi.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings twi.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > twi.d; \
+	[ -s twi.d ] || rm -f twi.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=lcd.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings lcd.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > lcd.d; \
+	[ -s lcd.d ] || rm -f lcd.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=keyboard.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings keyboard.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > keyboard.d; \
+	[ -s keyboard.d ] || rm -f keyboard.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=extlib.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings extlib.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > extlib.d; \
+	[ -s extlib.d ] || rm -f extlib.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=terminal.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings terminal.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > terminal.d; \
+	[ -s terminal.d ] || rm -f terminal.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=uart.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings uart.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > uart.d; \
+	[ -s uart.d ] || rm -f uart.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=store.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings store.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > store.d; \
+	[ -s store.d ] || rm -f store.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=time.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings time.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > time.d; \
+	[ -s time.d ] || rm -f time.d
+set -e; avr-gcc -MM -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=main.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings main.c \
+	| sed 's,\(.*\)\.o[ :]*,\1.o \1.d : ,g' > main.d; \
+	[ -s main.d ] || rm -f main.d
+
+-------- begin --------
+avr-gcc (WinAVR 20100110) 4.3.3
+Copyright (C) 2008 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Compiling: main.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=main.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings main.c -o main.o
+
+Compiling: time.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=time.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings time.c -o time.o
+
+Compiling: store.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=store.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings store.c -o store.o
+store.c: In function 'STORE_init':
+store.c:98: warning: pointer targets in passing argument 1 of 'putsrom_UART' differ in signedness
+store.c: At top level:
+store.c:144: warning: no previous declaration for 'STORE_fopen'
+store.c: In function 'STORE_fopen':
+store.c:174: warning: comparison between signed and unsigned
+store.c: At top level:
+store.c:194: warning: no previous declaration for 'STORE_buffered_write'
+
+Compiling: uart.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=uart.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings uart.c -o uart.o
+uart.c:197: warning: no previous declaration for 'WaitUART_Ready'
+
+Compiling: terminal.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=terminal.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings terminal.c -o terminal.o
+terminal.c: In function 'Regs_rs232':
+terminal.c:141: warning: implicit declaration of function 'HEX'
+terminal.c:141: warning: nested extern declaration of 'HEX'
+
+Compiling: extlib.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=extlib.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings extlib.c -o extlib.o
+extlib.c:47: warning: no previous declaration for 'HEX'
+
+Compiling: keyboard.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=keyboard.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings keyboard.c -o keyboard.o
+keyboard.c:134: warning: no previous declaration for 'SetScanLine'
+
+Compiling: lcd.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=lcd.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings lcd.c -o lcd.o
+lcd.c:470: warning: no previous declaration for 'lcd44780_getxy'
+
+Compiling: twi.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=twi.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings twi.c -o twi.o
+twi.c:337: warning: no previous declaration for 'ee24xx_write_page'
+
+Compiling: scan_dc.c
+avr-gcc -c -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=scan_dc.lst -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings scan_dc.c -o scan_dc.o
+scan_dc.c: In function 'ScanDC_common_alg':
+scan_dc.c:359: warning: declaration of '__addr16' shadows a previous local
+scan_dc.c:359: warning: shadowed declaration is here
+
+Linking: mk61avr.elf
+avr-gcc -mmcu=atmega32 -I. -std=gnu99 -O0 -gstabs -Wa,-adhlns=main.o -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wall -Wshadow -Wsign-compare -Wstrict-prototypes -Wmissing-declarations -Wnested-externs -Wwrite-strings main.o time.o store.o uart.o terminal.o extlib.o keyboard.o lcd.o twi.o scan_dc.o  --output mk61avr.elf -lm -Wl,-Map=mk61avr.map -Wl,--cref
+
+Creating load file for Flash: mk61avr.hex
+avr-objcopy -O ihex -R .eeprom mk61avr.elf mk61avr.hex
+
+Creating load file for EEPROM: mk61avr.eep
+avr-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+	--change-section-lma .eeprom=0 -O ihex mk61avr.elf mk61avr.eep
+c:\develop\winavr-20100110\bin\avr-objcopy.exe: --change-section-lma .eeprom=0x00000000 never used
+
+Creating Extended Listing: mk61avr.lss
+avr-objdump -h -S mk61avr.elf > mk61avr.lss
+
+Creating Symbol Table: mk61avr.sym
+avr-nm -n mk61avr.elf > mk61avr.sym
+
+Converting to AVR COFF: mk61avr.cof
+avr-objcopy --debugging --change-section-address .data-0x800000 --change-section-address .bss-0x800000 --change-section-address .noinit-0x800000 --change-section-address .eeprom-0x810000 -O coff-ext-avr mk61avr.elf mk61avr.cof   # Extended COFF. Supported in VMLAB from rel. 3.10
+c:\develop\winavr-20100110\bin\avr-objcopy.exe: --change-section-vma .eeprom+0xff7f0000 never used
+c:\develop\winavr-20100110\bin\avr-objcopy.exe: --change-section-lma .eeprom+0xff7f0000 never used
+c:\develop\winavr-20100110\bin\avr-objcopy.exe: --change-section-vma .noinit+0xff800000 never used
+c:\develop\winavr-20100110\bin\avr-objcopy.exe: --change-section-lma .noinit+0xff800000 never used
+
+Size after:
+mk61avr.elf  :
+section            size      addr
+.text             22310         0
+.data                10   8388704
+.bss                920   8388714
+.stab             28740         0
+.stabstr          13137         0
+.debug_aranges       96         0
+.debug_pubnames     118         0
+.debug_info        1327         0
+.debug_abbrev       709         0
+.debug_line        1616         0
+.debug_frame         96         0
+.debug_str          421         0
+.debug_loc         2074         0
+.debug_ranges        72         0
+Total             71646
+
+
+
+Errors: none
+-------- end --------
+
