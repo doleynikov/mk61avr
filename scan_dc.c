@@ -1,8 +1,8 @@
 // ***********************************************************
-// Project: Эмулятор программируемого калькулятора МК-61 на AVR:
+// Project: Р­РјСѓР»СЏС‚РѕСЂ РїСЂРѕРіСЂР°РјРјРёСЂСѓРµРјРѕРіРѕ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° РњРљ-61 РЅР° AVR:
 // https://github.com/doleynikov/mk61avr
 //
-// Copyright (с) 2017 Алексей Сугоняев, Виталий Самуров, Дмитрий Олейников
+// Copyright (СЃ) 2017 РђР»РµРєСЃРµР№ РЎСѓРіРѕРЅСЏРµРІ, Р’РёС‚Р°Р»РёР№ РЎР°РјСѓСЂРѕРІ, Р”РјРёС‚СЂРёР№ РћР»РµР№РЅРёРєРѕРІ
 //
 // Module name: scan_dc.c
 //
@@ -82,40 +82,40 @@ const signed char aScanDecoder_NUM[] PROGMEM =
 /* X<->Y*/  0x04,
 /*  .   */  0x0A,
 /* |-|  */  0x0B,
-/* ВП   */  0x0C,
+/* Р’Рџ   */  0x0C,
 /* Cx   */  0x0D,
 /* -:-  */  0x03
 };
 
 
 /*
- Таблица перекодировки скан-кодов и в опкоды MK61
-  SERVICE - режим управления mk61avr (код управления смещен на +5)
-  SHIFT   - режим смещения кодовой страницы на N байт (смещение N  на +5)
-  ALTER   - режим альтернативного смещения кодовой страницы (базовое смещение OFFSET на +5)
-  MOD_1   - режим модификации однобайтного опкода (модицифицируемый код смещен на +5)
-  MOD_2   - режим модификации двухбайтного опкода (первый байт опкода смещен на +5)
-  В первых 4 колонках могут идти только ОПКОДЫ VM61 или КОМАНДЫ УПРАЛВЕНИЯ ДЕКОДЕРОМ СКАН КОДОВ
-  в колонках начиная с 5 идут либо опкоды, либо данные команд управления декодером скан-кодов.
+ РўР°Р±Р»РёС†Р° РїРµСЂРµРєРѕРґРёСЂРѕРІРєРё СЃРєР°РЅ-РєРѕРґРѕРІ Рё РІ РѕРїРєРѕРґС‹ MK61
+  SERVICE - СЂРµР¶РёРј СѓРїСЂР°РІР»РµРЅРёСЏ mk61avr (РєРѕРґ СѓРїСЂР°РІР»РµРЅРёСЏ СЃРјРµС‰РµРЅ РЅР° +5)
+  SHIFT   - СЂРµР¶РёРј СЃРјРµС‰РµРЅРёСЏ РєРѕРґРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹ РЅР° N Р±Р°Р№С‚ (СЃРјРµС‰РµРЅРёРµ N  РЅР° +5)
+  ALTER   - СЂРµР¶РёРј Р°Р»СЊС‚РµСЂРЅР°С‚РёРІРЅРѕРіРѕ СЃРјРµС‰РµРЅРёСЏ РєРѕРґРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹ (Р±Р°Р·РѕРІРѕРµ СЃРјРµС‰РµРЅРёРµ OFFSET РЅР° +5)
+  MOD_1   - СЂРµР¶РёРј РјРѕРґРёС„РёРєР°С†РёРё РѕРґРЅРѕР±Р°Р№С‚РЅРѕРіРѕ РѕРїРєРѕРґР° (РјРѕРґРёС†РёС„РёС†РёСЂСѓРµРјС‹Р№ РєРѕРґ СЃРјРµС‰РµРЅ РЅР° +5)
+  MOD_2   - СЂРµР¶РёРј РјРѕРґРёС„РёРєР°С†РёРё РґРІСѓС…Р±Р°Р№С‚РЅРѕРіРѕ РѕРїРєРѕРґР° (РїРµСЂРІС‹Р№ Р±Р°Р№С‚ РѕРїРєРѕРґР° СЃРјРµС‰РµРЅ РЅР° +5)
+  Р’ РїРµСЂРІС‹С… 4 РєРѕР»РѕРЅРєР°С… РјРѕРіСѓС‚ РёРґС‚Рё С‚РѕР»СЊРєРѕ РћРџРљРћР”Р« VM61 РёР»Рё РљРћРњРђРќР”Р« РЈРџР РђР›Р’Р•РќРРЇ Р”Р•РљРћР”Р•Р РћРњ РЎРљРђРќ РљРћР”РћР’
+  РІ РєРѕР»РѕРЅРєР°С… РЅР°С‡РёРЅР°СЏ СЃ 5 РёРґСѓС‚ Р»РёР±Рѕ РѕРїРєРѕРґС‹, Р»РёР±Рѕ РґР°РЅРЅС‹Рµ РєРѕРјР°РЅРґ СѓРїСЂР°РІР»РµРЅРёСЏ РґРµРєРѕРґРµСЂРѕРј СЃРєР°РЅ-РєРѕРґРѕРІ.
 */
 const unsigned char aScanDecoder[] PROGMEM =
 {
 // + 0 ScanCode.Row == 0x10
-//            -      шифт F   шифт K    шифт F+K
+//            -      С€РёС„С‚ F   С€РёС„С‚ K    С€РёС„С‚ F+K
 //
 /* F    */  SHIFT,   SHIFT,   SHIFT,    UNKNOWN,    +1,          0,          0xFF,
-/* С/П  */  ALTER,   MOD_2,   MOD_1,    UNKNOWN,    +0,          op_IFNE,    op_IFNE_R,
-/* БП   */  MOD_2,   MOD_2,   MOD_1,    UNKNOWN,    op_JMP,      op_FOR2,    op_JMP_R,
-/* В/О  */  ALTER,   MOD_2,   MOD_1,    UNKNOWN,    +21,         op_IFGE,    op_IFGE_R,
-/* X->П */  MOD_1,   MOD_2,   MOD_1,    MK_SAVE,    op_mov_X_R,  op_FOR1,    op_ldx_MR,
-/* ШГ-> */  SERVICE, MOD_2,   MOD_1,    UNKNOWN,    MK_FRWD,     op_IFLT,    op_IFLT_R,
-/* П->X */  MOD_1,   MOD_2,   MOD_1,    MK_LOAD,    op_mov_R_X,  op_FOR0,    op_stx_MR,
-/* <-ШГ */  SERVICE, MOD_2,   MOD_1,    UNKNOWN,    MK_BACK,     op_IFEQ,    op_IFEQ_R,
+/* РЎ/Рџ  */  ALTER,   MOD_2,   MOD_1,    UNKNOWN,    +0,          op_IFNE,    op_IFNE_R,
+/* Р‘Рџ   */  MOD_2,   MOD_2,   MOD_1,    UNKNOWN,    op_JMP,      op_FOR2,    op_JMP_R,
+/* Р’/Рћ  */  ALTER,   MOD_2,   MOD_1,    UNKNOWN,    +21,         op_IFGE,    op_IFGE_R,
+/* X->Рџ */  MOD_1,   MOD_2,   MOD_1,    MK_SAVE,    op_mov_X_R,  op_FOR1,    op_ldx_MR,
+/* РЁР“-> */  SERVICE, MOD_2,   MOD_1,    UNKNOWN,    MK_FRWD,     op_IFLT,    op_IFLT_R,
+/* Рџ->X */  MOD_1,   MOD_2,   MOD_1,    MK_LOAD,    op_mov_R_X,  op_FOR0,    op_stx_MR,
+/* <-РЁР“ */  SERVICE, MOD_2,   MOD_1,    UNKNOWN,    MK_BACK,     op_IFEQ,    op_IFEQ_R,
 /* K    */  SHIFT,   SHIFT,   SHIFT,    UNKNOWN,    +2,          +2,         0xFE,
-/* ПП   */  ALTER,   MOD_2,   MOD_1,    UNKNOWN,    +42,         op_FOR3,    op_SUB_R,
+/* РџРџ   */  ALTER,   MOD_2,   MOD_1,    UNKNOWN,    +42,         op_FOR3,    op_SUB_R,
 //
 // + 70 ScanCode.Row == 0x20
-//            -      шифт F   шифт K    шифт F+K
+//            -      С€РёС„С‚ F   С€РёС„С‚ K    С€РёС„С‚ F+K
 //
 /*  9   */  op_9,    op_Tg,   op_Max,   UNKNOWN,    UNKNOWN,     UNKNOWN,    UNKNOWN,
 /*  0   */  op_0,    op_10x,  op_Nop,   UNKNOWN,    UNKNOWN,     UNKNOWN,    UNKNOWN,
@@ -129,7 +129,7 @@ const unsigned char aScanDecoder[] PROGMEM =
 /*  3   */  op_3,    op_ln,   op_gms,   UNKNOWN,    UNKNOWN,     UNKNOWN,    UNKNOWN,
 //
 // + 140 ScanCode.Row == 0x40
-//            -      шифт F   шифт K   шифт F+K
+//            -      С€РёС„С‚ F   С€РёС„С‚ K   С€РёС„С‚ F+K
 //
 /*  B^  */  op_Bl,   op_Bx,   op_rnd,  UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
 /*  +   */  op_Add,  op_Pi,   op_gm,   UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
@@ -138,21 +138,21 @@ const unsigned char aScanDecoder[] PROGMEM =
 /* X<->Y*/  op_XY,   op_Xy,   op_gs,   UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
 /*  .   */  op_cma,  op_Cyc,  op_and,  UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
 /* |-|  */  op_csg,  SERVICE, op_or,   UNKNOWN,     UNKNOWN,     MK_AUTO,    UNKNOWN,
-/* ВП   */  op_E,    SERVICE, op_xor,  UNKNOWN,     UNKNOWN,     MK_PROG,    UNKNOWN,
+/* Р’Рџ   */  op_E,    SERVICE, op_xor,  UNKNOWN,     UNKNOWN,     MK_PROG,    UNKNOWN,
 /* Cx   */  op_Cx,   SHIFT,   op_not,  MK_FORMAT,   UNKNOWN,        0xFF,    UNKNOWN,
 /* -:-  */  op_Div,  op_1dx,  op_Kd,   UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
 //
-// Таблица альтернатив + 210
+// РўР°Р±Р»РёС†Р° Р°Р»СЊС‚РµСЂРЅР°С‚РёРІ + 210
 //
-// + 0  для C/П
+// + 0  РґР»СЏ C/Рџ
 /* AUTO */  SERVICE, UNKNOWN, UNKNOWN, UNKNOWN,     MK_START,    UNKNOWN,    UNKNOWN,
 /* PROG */  op_STOP, UNKNOWN, UNKNOWN, UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
 /* RUN  */  SERVICE, UNKNOWN, UNKNOWN, UNKNOWN,     MK_STOP,     UNKNOWN,    UNKNOWN,
-// + 21 для В/О
+// + 21 РґР»СЏ Р’/Рћ
 /* AUTO */  SERVICE, UNKNOWN, UNKNOWN, UNKNOWN,     MK_GOTOP,    UNKNOWN,    UNKNOWN,
 /* PROG */  op_RET,  UNKNOWN, UNKNOWN, UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
 /* RUN  */  UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
-// + 42 для ПП
+// + 42 РґР»СЏ РџРџ
 /* AUTO */  SERVICE, UNKNOWN, UNKNOWN, UNKNOWN,     MK_TRACE,    UNKNOWN,    UNKNOWN,
 /* PROG */  op_SUB,  UNKNOWN, UNKNOWN, UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
 /* RUN  */  UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN,     UNKNOWN,     UNKNOWN,    UNKNOWN,
@@ -167,12 +167,12 @@ Input:    none
 
 Returns:  none
 
-    Сброс декодера скан-последовательностей
+    РЎР±СЂРѕСЃ РґРµРєРѕРґРµСЂР° СЃРєР°РЅ-РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚РµР№
 *************************************************************************/
 void ScanDC_RESET(void)
 {
-    pScanDC = (signed char*) &aScanDecoder[0]; // укзатель таблицы декодировки в начальное положение
-    scandc_proc = &ScanDC_common_alg;           // Указатель обработчика в основной алгоритм
+    pScanDC = (signed char*) &aScanDecoder[0]; // СѓРєР·Р°С‚РµР»СЊ С‚Р°Р±Р»РёС†С‹ РґРµРєРѕРґРёСЂРѕРІРєРё РІ РЅР°С‡Р°Р»СЊРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ
+    scandc_proc = &ScanDC_common_alg;           // РЈРєР°Р·Р°С‚РµР»СЊ РѕР±СЂР°Р±РѕС‚С‡РёРєР° РІ РѕСЃРЅРѕРІРЅРѕР№ Р°Р»РіРѕСЂРёС‚Рј
 }
 
 
@@ -184,7 +184,7 @@ Input:    none
 
 Returns:  none
 
-    Обработка скан-кода декодером скан-последовательностей
+    РћР±СЂР°Р±РѕС‚РєР° СЃРєР°РЅ-РєРѕРґР° РґРµРєРѕРґРµСЂРѕРј СЃРєР°РЅ-РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚РµР№
 *************************************************************************/
 void ScanDC_PROCESS(void)
 {
@@ -206,12 +206,12 @@ Input:    unsigned char val
 
 Returns:  none
 
-    Обработчик скан кода как модификатор OPERAND|NUM
+    РћР±СЂР°Р±РѕС‚С‡РёРє СЃРєР°РЅ РєРѕРґР° РєР°Рє РјРѕРґРёС„РёРєР°С‚РѕСЂ OPERAND|NUM
 *************************************************************************/
 void ScanDC_mod21(unsigned char val)
 {
-    VM61_GetOPERAND(OPC|val);   // декодер готов выпустить ОПКОД VM61
-    ScanDC_RESET();             // мавр сделал свое дело - вернем атовмат наместо
+    VM61_GetOPERAND(OPC|val);   // РґРµРєРѕРґРµСЂ РіРѕС‚РѕРІ РІС‹РїСѓСЃС‚РёС‚СЊ РћРџРљРћР” VM61
+    ScanDC_RESET();             // РјР°РІСЂ СЃРґРµР»Р°Р» СЃРІРѕРµ РґРµР»Рѕ - РІРµСЂРЅРµРј Р°С‚РѕРІРјР°С‚ РЅР°РјРµСЃС‚Рѕ
 }
 
 
@@ -222,7 +222,7 @@ Input:    unsigned char val
 
 Returns:  none
 
-    Обработчик скан кода как модификатор OPERAND = NUM<<4
+    РћР±СЂР°Р±РѕС‚С‡РёРє СЃРєР°РЅ РєРѕРґР° РєР°Рє РјРѕРґРёС„РёРєР°С‚РѕСЂ OPERAND = NUM<<4
 *************************************************************************/
 void ScanDC_mod20(unsigned char val)
 {
@@ -238,7 +238,7 @@ Input:    unsigned char val
 
 Returns:  none
 
-    Обработчик скан кода как модификатор OPCODE|NUM
+    РћР±СЂР°Р±РѕС‚С‡РёРє СЃРєР°РЅ РєРѕРґР° РєР°Рє РјРѕРґРёС„РёРєР°С‚РѕСЂ OPCODE|NUM
 *************************************************************************/
 void ScanDC_mod1(unsigned char val)
 {
@@ -246,8 +246,8 @@ void ScanDC_mod1(unsigned char val)
     __sprintf_P(&dump[0], &aScanDC_mod1[0], (unsigned int) OPC<<8|val);
     putsram_UART(&dump[0]);
 #endif
-    VM61_GetOPCODE(OPC|val, 0);     // декодер готов выпустить ОПКОД VM61
-    ScanDC_RESET();                 // мавр сделал свое дело - вернем атовмат наместо
+    VM61_GetOPCODE(OPC|val, 0);     // РґРµРєРѕРґРµСЂ РіРѕС‚РѕРІ РІС‹РїСѓСЃС‚РёС‚СЊ РћРџРљРћР” VM61
+    ScanDC_RESET();                 // РјР°РІСЂ СЃРґРµР»Р°Р» СЃРІРѕРµ РґРµР»Рѕ - РІРµСЂРЅРµРј Р°С‚РѕРІРјР°С‚ РЅР°РјРµСЃС‚Рѕ
 }
 
 
@@ -277,7 +277,7 @@ void ScanDC_common_alg(unsigned char val)
 
     DCCtrl = __LPM(pDC);
 
-    if(DCCtrl >= UNKNOWN)               // Ошибка декодирования
+    if(DCCtrl >= UNKNOWN)               // РћС€РёР±РєР° РґРµРєРѕРґРёСЂРѕРІР°РЅРёСЏ
     {
         ScanDC_RESET();
 #ifdef DEBUG_SCAN_DECODER
@@ -291,10 +291,10 @@ void ScanDC_common_alg(unsigned char val)
     putsram_UART((char*) &dump[0]);
 #endif
 
-    // Работа декодера по исполнению команд управления декодером организующих сдвиг в странице
+    // Р Р°Р±РѕС‚Р° РґРµРєРѕРґРµСЂР° РїРѕ РёСЃРїРѕР»РЅРµРЅРёСЋ РєРѕРјР°РЅРґ СѓРїСЂР°РІР»РµРЅРёСЏ РґРµРєРѕРґРµСЂРѕРј РѕСЂРіР°РЅРёР·СѓСЋС‰РёС… СЃРґРІРёРі РІ СЃС‚СЂР°РЅРёС†Рµ
     if((DCCtrl==ALTER)||(DCCtrl==SHIFT))
     {
-        pDC = pScanDC + (signed char) __LPM(pDC+4); // сдвинем указатель в странице перекодировки
+        pDC = pScanDC + (signed char) __LPM(pDC+4); // СЃРґРІРёРЅРµРј СѓРєР°Р·Р°С‚РµР»СЊ РІ СЃС‚СЂР°РЅРёС†Рµ РїРµСЂРµРєРѕРґРёСЂРѕРІРєРё
 #ifdef DEBUG_SCAN_DECODER
         __sprintf_P(&dump[0],&aScanInf[0], pDC, pScanDC, (unsigned int) DCCtrl<<8|ScanCode.val);
         putsram_UART((char*) &dump[0]);
@@ -302,7 +302,7 @@ void ScanDC_common_alg(unsigned char val)
 
         if(DCCtrl==ALTER)
         {
-            // Если ALTER дополнительно сдвинем указатель в соответствии с альтернативной
+            // Р•СЃР»Рё ALTER РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ СЃРґРІРёРЅРµРј СѓРєР°Р·Р°С‚РµР»СЊ РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ Р°Р»СЊС‚РµСЂРЅР°С‚РёРІРЅРѕР№
             pDC += 210;
             if(MK61.VM61.FLAGS.MODE)
             {
@@ -318,13 +318,13 @@ void ScanDC_common_alg(unsigned char val)
         }
         else
         {
-            // Если шифт то сохраним новый указатель на таблицу перекодировки и уйдем до след. нажатия
+            // Р•СЃР»Рё С€РёС„С‚ С‚Рѕ СЃРѕС…СЂР°РЅРёРј РЅРѕРІС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С‚Р°Р±Р»РёС†Сѓ РїРµСЂРµРєРѕРґРёСЂРѕРІРєРё Рё СѓР№РґРµРј РґРѕ СЃР»РµРґ. РЅР°Р¶Р°С‚РёСЏ
             pScanDC = pDC;
             return;
         }
     }
 
-    // Работа декодера по исполнению команд управления аппаратным комплексом или выпуском ОПКОДА VM61
+    // Р Р°Р±РѕС‚Р° РґРµРєРѕРґРµСЂР° РїРѕ РёСЃРїРѕР»РЅРµРЅРёСЋ РєРѕРјР°РЅРґ СѓРїСЂР°РІР»РµРЅРёСЏ Р°РїРїР°СЂР°С‚РЅС‹Рј РєРѕРјРїР»РµРєСЃРѕРј РёР»Рё РІС‹РїСѓСЃРєРѕРј РћРџРљРћР”Рђ VM61
     OPC = __LPM(pDC+4);
 
 #ifdef DEBUG_SCAN_DECODER
@@ -332,7 +332,7 @@ void ScanDC_common_alg(unsigned char val)
     putsram_UART((char*) &dump[0]);
 #endif
 
-    // Работа декодера по отработке модификаторов MOD_2 и MOD_1
+    // Р Р°Р±РѕС‚Р° РґРµРєРѕРґРµСЂР° РїРѕ РѕС‚СЂР°Р±РѕС‚РєРµ РјРѕРґРёС„РёРєР°С‚РѕСЂРѕРІ MOD_2 Рё MOD_1
     if(DCCtrl==MOD_1)
     {
         scandc_proc = ScanDC_mod1;
@@ -344,16 +344,16 @@ void ScanDC_common_alg(unsigned char val)
         VM61_GetOPCODE(OPC, 1);
         return;
     }
-    else if(DCCtrl < SERVICE)       // декодер готов выпустить ОПКОД VM61
+    else if(DCCtrl < SERVICE)       // РґРµРєРѕРґРµСЂ РіРѕС‚РѕРІ РІС‹РїСѓСЃС‚РёС‚СЊ РћРџРљРћР” VM61
     {
         VM61_GetOPCODE(DCCtrl, 0);
     }
-    else if(DCCtrl==SERVICE)        // декодер должен управлять апп.комплексом
+    else if(DCCtrl==SERVICE)        // РґРµРєРѕРґРµСЂ РґРѕР»Р¶РµРЅ СѓРїСЂР°РІР»СЏС‚СЊ Р°РїРї.РєРѕРјРїР»РµРєСЃРѕРј
     {
         ((servcall*) __LPM_word(&SERVICE_PROC[__LPM(pDC+4)]))();
-        MK61.VM61.FLAGS.DISP = 1; // Изменения управлением комплекса вызывают изменения индикации
+        MK61.VM61.FLAGS.DISP = 1; // РР·РјРµРЅРµРЅРёСЏ СѓРїСЂР°РІР»РµРЅРёРµРј РєРѕРјРїР»РµРєСЃР° РІС‹Р·С‹РІР°СЋС‚ РёР·РјРµРЅРµРЅРёСЏ РёРЅРґРёРєР°С†РёРё
     }
 
-    ScanDC_RESET(); // мавр сделал свое дело - вернем автомат в ноль
+    ScanDC_RESET(); // РјР°РІСЂ СЃРґРµР»Р°Р» СЃРІРѕРµ РґРµР»Рѕ - РІРµСЂРЅРµРј Р°РІС‚РѕРјР°С‚ РІ РЅРѕР»СЊ
 }
 
