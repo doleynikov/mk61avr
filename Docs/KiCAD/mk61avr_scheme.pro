@@ -1,4 +1,4 @@
-update=Вт 17 янв 2017 16:05:40
+update=Вт 17 янв 2017 16:19:46
 last_client=cvpcb
 [eeschema]
 version=1
@@ -75,7 +75,7 @@ LibName13=led
 LibName14=dip_sockets
 LibName15=pga_sockets
 LibName16=valves
-LibDir=/home/dimao/kicad;/home/dimao/kicad/kicad-library
+LibDir=
 [cvpcb]
 version=1
 NetIExt=net

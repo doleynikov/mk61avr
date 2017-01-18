@@ -859,9 +859,9 @@ Wire Wire Line
 Wire Wire Line
 	1150 6900 700  6900
 Wire Bus Line
-	6900 7600 600  7600
+	600  7600 6900 7600
 Wire Bus Line
-	6900 2400 6900 7600
+	6900 7600 6900 2400
 Wire Wire Line
 	4650 2950 4200 2950
 Wire Wire Line

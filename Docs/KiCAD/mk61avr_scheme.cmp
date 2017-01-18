@@ -1,304 +1,304 @@
-Cmp-Mod V01 Created by CvPcb (22-Jun-2014 BZR 4027)-stable date = Вт 17 янв 2017 16:05:58
+Cmp-Mod V01 Created by CvPcb (22-Jun-2014 BZR 4027)-stable date = Вт 17 янв 2017 16:31:32
 
 BeginCmp
 TimeStamp = /587DB7C3;
 Reference = IC1;
 ValeurCmp = ATMEGA8-P;
-IdModule  = SM1206;
+IdModule  = DIP-28__300;
 EndCmp
 
 BeginCmp
 TimeStamp = /587DF75B;
 Reference = K1;
 ValeurCmp = CONN_3;
-IdModule  = SM1206;
+IdModule  = PIN_ARRAY_3X1;
 EndCmp
 
 BeginCmp
 TimeStamp = /587DF67B;
 Reference = P1;
 ValeurCmp = CONN_4;
-IdModule  = SM1206;
+IdModule  = PIN_ARRAY_4x1;
 EndCmp
 
 BeginCmp
 TimeStamp = /4B0C0732;
 Reference = R1;
 ValeurCmp = 680;
-IdModule  = SM1206;
+IdModule  = R3;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80428;
 Reference = R2;
 ValeurCmp = 680;
-IdModule  = SM1206;
+IdModule  = R3;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE804AA;
 Reference = R3;
 ValeurCmp = 680;
-IdModule  = SM1206;
+IdModule  = R3;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE804E0;
 Reference = R4;
 ValeurCmp = 680;
-IdModule  = SM1206;
+IdModule  = R3;
 EndCmp
 
 BeginCmp
 TimeStamp = /4B0C0728;
 Reference = SW1;
 ValeurCmp = ON/OFF;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE7FFA4;
 Reference = SW2;
 ValeurCmp = 0;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE7FFAD;
 Reference = SW3;
 ValeurCmp = +;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE7FFB3;
 Reference = SW4;
 ValeurCmp = S/S;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4B0C0729;
 Reference = SW5;
 ValeurCmp = LFT;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80042;
 Reference = SW6;
 ValeurCmp = 1;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80043;
 Reference = SW7;
 ValeurCmp = -;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80044;
 Reference = SW8;
 ValeurCmp = GOTO;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4B0C072A;
 Reference = SW9;
 ValeurCmp = RGT;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE8009C;
 Reference = SW10;
 ValeurCmp = 2;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE8009D;
 Reference = SW11;
 ValeurCmp = X;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE8009E;
 Reference = SW12;
 ValeurCmp = RET;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4B0C072B;
 Reference = SW13;
 ValeurCmp = SAVE;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE8009F;
 Reference = SW14;
 ValeurCmp = 3;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE800A0;
 Reference = SW15;
 ValeurCmp = 3;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE800A1;
 Reference = SW16;
 ValeurCmp = SUB;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4B0C072C;
 Reference = SW17;
 ValeurCmp = LOAD;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE8010F;
 Reference = SW18;
 ValeurCmp = 4;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80110;
 Reference = SW19;
 ValeurCmp = XY;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80111;
 Reference = SW20;
 ValeurCmp = STORE;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80112;
 Reference = SW21;
 ValeurCmp = 5;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80113;
 Reference = SW22;
 ValeurCmp = ,;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80114;
 Reference = SW23;
 ValeurCmp = STEP>;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80115;
 Reference = SW24;
 ValeurCmp = 6;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80116;
 Reference = SW25;
 ValeurCmp = /-/;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80117;
 Reference = SW26;
 ValeurCmp = LOAD;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80118;
 Reference = SW27;
 ValeurCmp = 7;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80119;
 Reference = SW28;
 ValeurCmp = POW;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE8011A;
 Reference = SW29;
 ValeurCmp = <STEP;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80214;
 Reference = SW30;
 ValeurCmp = 8;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80215;
 Reference = SW31;
 ValeurCmp = Cx;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80216;
 Reference = SW32;
 ValeurCmp = K;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80217;
 Reference = SW33;
 ValeurCmp = 9;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80218;
 Reference = SW34;
 ValeurCmp = Bx;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4AE80219;
 Reference = SW35;
 ValeurCmp = F;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
 TimeStamp = /587DF8F7;
 Reference = SW36;
 ValeurCmp = SW_PUSH;
-IdModule  = ;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 EndListe
