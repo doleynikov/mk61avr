@@ -1,6 +1,6 @@
-update=Ср 18 янв 2017 09:23:32
+update=Чт 19 янв 2017 09:36:47
 version=1
-last_client=pcbnew
+last_client=kicad
 [cvpcb]
 version=1
 NetITyp=0
@@ -11,8 +11,6 @@ LibDir=
 NetType=0
 [cvpcb/libraries]
 EquName1=devcms
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=/home/dimao/kicad;/home/dimao/kicad/kicad-library/library
@@ -84,3 +82,5 @@ LibName7=display
 LibName8=valves
 LibName9=led
 LibName10=dip_sockets
+[general]
+version=1
