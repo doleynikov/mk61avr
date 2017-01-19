@@ -36,7 +36,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "MK-61-Avr - simulator of programmable calculator MK-61"
-Date "17 jan 2017"
+Date "18 jan 2017"
 Rev "1.0"
 Comp "Private hobby project"
 Comment1 ""
@@ -1065,4 +1065,39 @@ Text Label 2980 2550 0    60   ~ 0
 GND
 Text Label 4650 2950 0    60   ~ 0
 GND
+$Comp
+L CONN_5X2 P?
+U 1 1 587F32F4
+P 8450 2400
+F 0 "P?" H 8450 2700 60  0000 C CNN
+F 1 "CONN_5X2" V 8450 2400 50  0000 C CNN
+F 2 "" H 8450 2400 60  0000 C CNN
+F 3 "" H 8450 2400 60  0000 C CNN
+	1    8450 2400
+	1    0    0    -1  
+$EndComp
+Text Label 8850 2300 0    60   ~ 0
+GND
+Text Label 8850 2400 0    60   ~ 0
+GND
+Text Label 8850 2500 0    60   ~ 0
+GND
+Text Label 8850 2600 0    60   ~ 0
+GND
+Text Label 8050 2200 0    60   ~ 0
+MOSI
+Text Label 8050 2400 0    60   ~ 0
+RST
+Text Label 8050 2500 0    60   ~ 0
+SCK
+Text Label 8050 2600 0    60   ~ 0
+MISO
+Text Label 4650 2550 0    60   ~ 0
+RST
+Text Label 6550 3050 2    60   ~ 0
+SCK
+Text Label 6550 2950 2    60   ~ 0
+MISO
+Text Label 6550 2850 2    60   ~ 0
+MOSI
 $EndSCHEMATC
