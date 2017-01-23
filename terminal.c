@@ -40,7 +40,7 @@ void* SeekCmd(char SymCmd);
 
 const char aUnknownCmd[] PROGMEM = "\r?cmd?";
 
-cCommand shell[15] PROGMEM =
+const cCommand shell[15] PROGMEM =
 {
     {'t'<<1,Step_rs232},
     {'@'<<1,Regs_rs232},
