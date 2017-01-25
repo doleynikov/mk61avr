@@ -168,7 +168,8 @@ sTimeTask* TIME_AppendTask(TaskCall *tcall, long int delta, unsigned char flags)
   Квант времени 0.005сек = 5mks
   Константа срабатывания таймера 625
 */
-SIGNAL(SIG_OUTPUT_COMPARE1A)
+//SIGNAL(SIG_OUTPUT_COMPARE1A)
+SIGNAL(TIMER1_COMPA_vect)
 {
     time++;
     OS.FLAGS.QUANT = 1;

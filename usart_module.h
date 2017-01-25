@@ -32,8 +32,11 @@
 #include <avr/interrupt.h>
 
 // прерывания обслуживаемые в модуле
-SIGNAL (SIG_UART_DATA);
-SIGNAL (SIG_UART_RECV);
+//SIGNAL (SIG_UART_DATA);
+//SIGNAL (SIG_UART_RECV);
+
+SIGNAL (USART_RXC_vect);
+SIGNAL (USART_UDRE_vect);
 
 // процедуры модуля
 extern void putsrom_UART(char* PROGMEM pPTR);

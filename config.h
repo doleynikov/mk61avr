@@ -25,16 +25,18 @@
 //
 // ***********************************************************
 //
+
+
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 
-#define DEBUG                       // Ключ вывода вспомогательной отладочной информации!!!
+//#define DEBUG                       // Ключ вывода вспомогательной отладочной информации!!!
 
 //#define DEBUG_SCAN_DECODER        // Ключ вывода отладочной информации по модулю декодера скан-кода
 
-#define DEBUG_STORE                 // Ключ вывода отладочной информации по модулю хранилища программ STORE
+//#define DEBUG_STORE                 // Ключ вывода отладочной информации по модулю хранилища программ STORE
 
-#define LIMIT_NUMERIC 11
+#define LIMIT_NUMERIC 5
 
 //#define VMLAB_SIMULATED
 
@@ -42,7 +44,7 @@
 
 //#define MK61_KEYPAD_IN_USE            // Используется клавиатура от МК61
 
-#define LCD_CONTRAST_MAX          // Контрастность максимал
+//#define LCD_CONTRAST_MAX          // Контрастность максимал
 
 #endif // _CONFIG_H_
 

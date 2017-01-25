@@ -40,14 +40,14 @@
 #include "mk61types.h"
 #include "usart_module.h"
 #include "time.h"
-#include "i2c.h"
-#include "store.h"
+//#include "i2c.h"
+//#include "store.h"
 #ifdef MK61_KEYPAD_IN_USE
  #include "keyboard.h"
  #include "scancode_dc.h"
 #endif // #ifdef MK61_KEYPAD_IN_USE
 #include "terminal.h"
-#include "lcd.h"
+//#include "lcd.h"
 #include "extlib.h"
 
 void InitHAL(void);
@@ -57,8 +57,8 @@ void MK61_CStack_pop(void);
 void MK61_AStack_push(void);
 void MK61_AStack_pop(void);
 void ExecRS232Stop(void);
-void OutputLCD_m1(void);
-void OutputLCD_m0(void);
+//void OutputLCD_m1(void);
+//void OutputLCD_m0(void);
 void MK61_displayed(void);
 
 typedef union
@@ -215,14 +215,14 @@ void InitHAL(void)
     TIME_Init();
 
     // Инициализация модуля TWI (I2C)
-    TWI_Init();
-    STORE_init();
+//    TWI_Init();
+//    STORE_init();
 
     // Init lcd
-    lcd44780_init(LCD_DISP_ON);
+//    lcd44780_init(LCD_DISP_ON);
 
     // Clear display and home cursor
-    lcd44780_clrscr();
+//    lcd44780_clrscr();
 
 #ifdef MK61_KEYPAD_IN_USE
     Keyboard_Init();
@@ -921,7 +921,7 @@ Returns:  none
     AA BB CC DD
 
 *************************************************************************/
-void OutputLCD_m1(void)
+/*void OutputLCD_m1(void)
 {
     register char *pBuff = &dispprg[0];
     register unsigned char *pPRG  = &MK61.prg[PC];
@@ -930,7 +930,7 @@ void OutputLCD_m1(void)
     a.s.hi = *pPRG--;
 
     __sprintf_P(pBuff, aProgramLine, a, (int) ((PC<<8)|*pPRG));
-
+*/
 /* TODO
     pBuff += 8;
     if(PC < 2) {*--pBuff = ':'; *--pBuff = ':';}
@@ -939,13 +939,13 @@ void OutputLCD_m1(void)
     pBuff -= 2;
     if(PC == 0) {*--pBuff = ':'; *--pBuff = ':';}
 */
-
+/*
     // Clear display and home cursor
-    lcd44780_clrscr();
-    lcd44780_gotoxy(0, 0);
+//    lcd44780_clrscr();
+//    lcd44780_gotoxy(0, 0);
 
-    lcd44780_puts(dispprg);
-}
+//    lcd44780_puts(dispprg);
+}*/
 
 
 /*************************************************************************
@@ -968,7 +968,7 @@ Returns:  none
 
     P.S. Лучше переписать функцию форматирования double чем возиться с этой химерой dtostrf :)
 *************************************************************************/
-void OutputLCD_m0(void)
+/*void OutputLCD_m0(void)
 {
     // TODO register signed char tmp;
     // TODO    register char *ptmp;
@@ -977,11 +977,11 @@ void OutputLCD_m0(void)
     pdisp= &disp[0];
 
     // Clear display and home cursor
-    lcd44780_clrscr();
-    lcd44780_home();
-    lcd44780_puts(pdisp);
+//    lcd44780_clrscr();
+//    lcd44780_home();
+//    lcd44780_puts(pdisp);
 }
-
+*/
 
 /*************************************************************************
 Name: MK61_displayed
@@ -1007,11 +1007,11 @@ void MK61_displayed(void)
     {
         if(MK61.VM61.FLAGS.MODE)
         {
-            OutputLCD_m1();
+//            OutputLCD_m1();
         }
         else
         {
-            OutputLCD_m0();
+//            OutputLCD_m0();
         }
 
         MK61.VM61.FLAGS.DISP    = 0;

@@ -3,32 +3,40 @@
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="de.innot.avreclipse.toolchain.winavr.base.322125985">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="de.innot.avreclipse.toolchain.winavr.base.322125985" moduleId="org.eclipse.cdt.core.settings" name="Default">
+				<macros>
+					<stringMacro name="AVRTARGETMCU" type="VALUE_TEXT" value="atmega8"/>
+				</macros>
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildProperties="" description="" id="de.innot.avreclipse.toolchain.winavr.base.322125985" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.VCErrorParser;org.eclipse.cdt.core.CWDLocator" id="de.innot.avreclipse.toolchain.winavr.base.322125985" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
 					<folderInfo id="de.innot.avreclipse.toolchain.winavr.base.322125985.1284709669" name="/" resourcePath="">
-						<toolChain id="de.innot.avreclipse.toolchain.winavr.base.465995190" name="AVR-GCC Toolchain" superClass="de.innot.avreclipse.toolchain.winavr.base">
+						<toolChain errorParsers="" id="de.innot.avreclipse.toolchain.winavr.base.465995190" name="AVR-GCC Toolchain" superClass="de.innot.avreclipse.toolchain.winavr.base">
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.objcopy.flash.1513826801" name="Generate HEX file for Flash memory" superClass="de.innot.avreclipse.toolchain.options.toolchain.objcopy.flash"/>
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.objcopy.eeprom.1036655650" name="Generate HEX file for EEPROM" superClass="de.innot.avreclipse.toolchain.options.toolchain.objcopy.eeprom"/>
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.objdump.746517194" name="Generate Extended Listing (Source + generated Assembler)" superClass="de.innot.avreclipse.toolchain.options.toolchain.objdump"/>
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.size.1737745824" name="Print Size" superClass="de.innot.avreclipse.toolchain.options.toolchain.size"/>
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.avrdude.1252232358" name="AVRDude" superClass="de.innot.avreclipse.toolchain.options.toolchain.avrdude"/>
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="de.innot.avreclipse.targetplatform.avr.2134765597" name="AVR Cross-Target" osList="all" superClass="de.innot.avreclipse.targetplatform.avr"/>
-							<builder id="de.innot.avreclipse.target.builder.winavr.base.1281045235" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.base"/>
-							<tool id="de.innot.avreclipse.tool.assembler.winavr.base.284315847" name="AVR Assembler" superClass="de.innot.avreclipse.tool.assembler.winavr.base">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF" id="de.innot.avreclipse.targetplatform.avr.2134765597" name="AVR Cross-Target" osList="all" superClass="de.innot.avreclipse.targetplatform.avr"/>
+							<builder errorParsers="org.eclipse.cdt.core.MakeErrorParser" id="de.innot.avreclipse.target.builder.winavr.base.1281045235" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.base"/>
+							<tool errorParsers="org.eclipse.cdt.core.GASErrorParser" id="de.innot.avreclipse.tool.assembler.winavr.base.284315847" name="AVR Assembler" superClass="de.innot.avreclipse.tool.assembler.winavr.base">
 								<inputType id="de.innot.avreclipse.tool.assembler.input.380879651" superClass="de.innot.avreclipse.tool.assembler.input"/>
 							</tool>
-							<tool id="de.innot.avreclipse.tool.compiler.winavr.base.688217506" name="AVR Compiler" superClass="de.innot.avreclipse.tool.compiler.winavr.base">
+							<tool errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="de.innot.avreclipse.tool.compiler.winavr.base.688217506" name="AVR Compiler" superClass="de.innot.avreclipse.tool.compiler.winavr.base">
 								<inputType id="de.innot.avreclipse.compiler.winavr.input.208715835" name="C Source Files" superClass="de.innot.avreclipse.compiler.winavr.input"/>
 							</tool>
-							<tool id="de.innot.avreclipse.tool.cppcompiler.base.1057682814" name="AVR C++ Compiler" superClass="de.innot.avreclipse.tool.cppcompiler.base">
+							<tool errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="de.innot.avreclipse.tool.cppcompiler.base.1057682814" name="AVR C++ Compiler" superClass="de.innot.avreclipse.tool.cppcompiler.base">
 								<inputType id="de.innot.avreclipse.cppcompiler.input.816212004" superClass="de.innot.avreclipse.cppcompiler.input"/>
 							</tool>
 							<tool id="de.innot.avreclipse.tool.linker.winavr.base.499353639" name="AVR C Linker" superClass="de.innot.avreclipse.tool.linker.winavr.base"/>

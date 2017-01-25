@@ -33,8 +33,8 @@
 #include "mk61types.h"
 #include "usart_module.h"
 #include "extlib.h"
-#include "i2c.h"
-#include "store.h"
+//#include "i2c.h"
+//#include "store.h"
 
 void* SeekCmd(char SymCmd);
 
@@ -233,14 +233,14 @@ Returns:  unsigned char
 *************************************************************************/
 unsigned char SaveFlash(signed char par)
 {
-    if(par >= 0)
+/*    if(par >= 0)
     {
         int ret = ee24xx_write_bytes(STORE_DEVICE, par<<8, 256, (unsigned char*) &MK61.prg[0]);
 #ifdef DEBUG
         EEPROM_PutErrorCode(ret);
 #endif
     }
-    else
+    else*/
     {
         // Сохраним программу МК61 в EEPROM
         BlockWrEEPROM((unsigned char*) EEPROM_MK61PRG,(unsigned char*) &MK61.prg[0], 105);
@@ -262,11 +262,11 @@ Returns:  unsigned char
 *************************************************************************/
 unsigned char LoadFlash(signed char par)
 {
-    if(par >= 0)
+/*    if(par >= 0)
     {
         STORE_fread(par);
     }
-    else
+    else*/
     {
         // Считаем программу МК61 в EEPROM
         BlockRdEEPROM((unsigned char*) EEPROM_MK61PRG,(unsigned char*) &MK61.prg[0], 105);

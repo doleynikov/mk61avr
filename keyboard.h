@@ -33,7 +33,7 @@
 // Время подавления переходных процессов клавиш (дребезг) = 0.4 сек
 #define TIME_DRIBLING_WAIT          TIME_200ms
 
-#define KEY_P0                      PINA
+#define KEY_P0                      PIND
 #define KEY_P1                      PINB
 #define SCANPORT                    PORTB
 #define SCANDDR                     DDRB

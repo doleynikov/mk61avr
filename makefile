@@ -80,7 +80,8 @@ OBJDIR = .
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = main.c uart.c terminal.c extlib.c keyboard.c lcd.c time.c twi.c scan_dc.c store.c
+SRC = main.c uart.c terminal.c extlib.c keyboard.c time.c scan_dc.c
+# lcd.c twi.c  store.c
 #$(TARGET).c
 
 
@@ -101,7 +102,8 @@ ASRC =
 # Optimization level, can be [0, 1, 2, 3, s].
 #     0 = turn off optimization. s = optimize for size.
 #     (Note: 3 is not always the best optimization level. See avr-libc FAQ.)
-OPT = 1
+OPT = s
+# 1 
 
 
 # Debugging format.
@@ -166,7 +168,10 @@ CFLAGS += -Wa,-adhlns=$(<:%.c=$(OBJDIR)/%.lst)
 CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 CFLAGS += $(CSTANDARD)
 
-CFLAGS += -D__AVR_LIBC_DEPRECATED_ENABLE__
+CFLAGS += -ffunction-sections 
+CFLAGS += -fdata-sections
+
+#CFLAGS += -D__AVR_LIBC_DEPRECATED_ENABLE__
 
 #---------------- Compiler Options C++ ----------------
 #  -g*:          generate debugging information
@@ -266,7 +271,7 @@ LDFLAGS += $(EXTMEMOPTS)
 LDFLAGS += $(patsubst %,-L%,$(EXTRALIBDIRS))
 LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
 #LDFLAGS += -T linker_script.x
-
+LDFLAGS += -gc-sections
 
 
 #---------------- Programming Options (avrdude) ----------------
@@ -390,7 +395,6 @@ LST = $(SRC:%.c=$(OBJDIR)/%.lst) $(CPPSRC:%.cpp=$(OBJDIR)/%.lst) $(ASRC:%.S=$(OB
 
 # Compiler flags to generate dependency files.
 GENDEPFLAGS = -MMD -MP -MF .dep/$(@F).d
-
 
 # Combine all necessary flags and optional flags.
 # Add target processor to flags.
@@ -549,7 +553,7 @@ extcoff: $(TARGET).elf
 .SECONDARY : $(TARGET).elf
 .PRECIOUS : $(OBJ)
 %.elf: $(OBJ)
-	@echo
+	@echo 
 	@echo $(MSG_LINKING) $@
 	$(CC) $(ALL_CFLAGS) $^ --output $@ $(LDFLAGS)
 

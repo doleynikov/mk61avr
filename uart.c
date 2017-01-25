@@ -49,7 +49,8 @@ const unsigned char SPACE = ' ';
 /*
  Событие буфер USART пуст (URDE)
 */
-SIGNAL(SIG_UART_DATA)
+//SIGNAL(SIG_UART_DATA)
+SIGNAL (USART_UDRE_vect)
 {
     char a = 0;
 
@@ -75,7 +76,9 @@ SIGNAL(SIG_UART_DATA)
 }
 
 
-SIGNAL(SIG_UART_RECV)
+//SIGNAL(SIG_UART_RECV)
+SIGNAL (USART_RXC_vect)
+
 {
     register unsigned char CHR = UDR;
     register unsigned char *pLastRxPut;

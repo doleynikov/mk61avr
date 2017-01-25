@@ -42,7 +42,7 @@ dccall *scandc_proc;
  const char aScanInf[]     PROGMEM = "\rpDC=%x%x TAB=%x%x Scan=%x CTRL=%x";
 #endif
 
-const servcall *SERVICE_PROC[] PROGMEM =
+const servcall * const SERVICE_PROC[] PROGMEM =
 {
     (const servcall*) &MK61_FrwdStep,
     (const servcall*) &MK61_BackStep,

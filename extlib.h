@@ -28,7 +28,7 @@
 #ifndef _EXTLIB_H_
 #define _EXTLIB_H_
 
-
+char HEX(unsigned char val);
 
 extern unsigned char atoc(unsigned char *pStr);
 extern void BlockWrEEPROM(unsigned char *eeprom, unsigned char *ram, unsigned char count);
