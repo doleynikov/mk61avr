@@ -29,6 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:arduino
 LIBS:mk61avr_scheme-cache
 EELAYER 25 0
 EELAYER END
@@ -1375,4 +1376,45 @@ Wire Wire Line
 Wire Wire Line
 	4869 1430 4869 1100
 Connection ~ 4869 1100
+$Comp
+L arduino_mini U?
+U 1 1 589084D4
+P 9000 3550
+F 0 "U?" H 9500 2600 70  0000 C CNN
+F 1 "arduino_mini" H 9750 2500 70  0000 C CNN
+F 2 "DIL20" H 9000 3500 60  0000 C CNN
+F 3 "" H 9000 3550 60  0001 C CNN
+	1    9000 3550
+	1    0    0    -1  
+$EndComp
+Text Label 9700 3000 0    60   ~ 0
+COL_4
+Text Label 9700 3100 0    60   ~ 0
+COL_3
+Text Label 9700 3200 0    60   ~ 0
+COL_2
+Text Label 9700 3300 0    60   ~ 0
+COL_1
+Text Label 9700 3400 0    60   ~ 0
+COL_0
+Text Label 8300 3350 0    60   ~ 0
+ROW_0
+Text Label 8300 3450 0    60   ~ 0
+ROW_1
+Text Label 8300 3550 0    60   ~ 0
+ROW_2
+Text Label 8300 3650 0    60   ~ 0
+ROW_3
+Text Label 9700 4150 0    60   ~ 0
+ROW_4
+Text Label 9700 4050 0    60   ~ 0
+ROW_5
+Text Label 9700 3950 0    60   ~ 0
+ROW_6
+Text Label 9700 3850 0    60   ~ 0
+ROW_7
+Text Label 8300 3750 0    60   ~ 0
+I2C_SDA
+Text Label 8300 3850 0    60   ~ 0
+I2C_SCL
 $EndSCHEMATC

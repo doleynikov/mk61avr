@@ -1,4 +1,4 @@
-update=Вт 31 янв 2017 15:14:03
+update=Вт 31 янв 2017 15:28:58
 last_client=eeschema
 [pcbnew]
 version=1
@@ -77,3 +77,4 @@ LibName28=opto
 LibName29=atmel
 LibName30=contrib
 LibName31=valves
+LibName32=arduino
