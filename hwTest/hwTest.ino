@@ -2,9 +2,9 @@
 // © Dave Curran
 // 2012-02-15
 
-#include <Wire.h> 
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 #define LED_PIN LED_BUILTIN
 //13
@@ -23,20 +23,20 @@ LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars
 
 // keymap for normal use
 byte keyMap[NUM_ROWS][NUM_COLS] = {
-  {'5', '4', '3', '2', '1'}, 
-  {'T', 'R', 'E', 'W', 'Q'}, 
+  {'5', '4', '3', '2', '1'},
+  {'T', 'R', 'E', 'W', 'Q'},
+  {'G', 'F', 'D', 'S', 'A'},
+  {'V', 'C', 'X', 'Z', '#'},
   {'6', '7', '8', '9', '0'},
-  {'G', 'F', 'D', 'S', 'A'}, 
   {'Y', 'U', 'I', 'O', 'P'},
-  {'V', 'C', 'X', 'Z', '#'}, 
   {'H', 'J', 'K', 'L', '*'},
   {'B', 'N', 'M', '.', '='}
 };
 
 // keymap if shift is pressed
 byte keyMapShifted[NUM_ROWS][NUM_COLS] = {
-  {'<', 0, 0, 0, '~'}, 
-  {0, 0, 0, 0, 0}, 
+  {'<', 0, 0, 0, '~'},
+  {0, 0, 0, 0, 0},
   {'v', '^', '>', 0, '-'},
   {0, 0, 0, 0, 0},
   {0, 0, 0, 0, 0},
@@ -49,7 +49,7 @@ int debounceCount[NUM_ROWS][NUM_COLS];
 
 // define the row and column pins
 byte colPins[NUM_COLS] = {8, 9, 10, 11, 12};
-byte rowPins[NUM_ROWS] = {A0, A1, A2, A3, 2,3,4,5};
+byte rowPins[NUM_ROWS] = {A0, A1, A2, A3, 2, 3, 4, 5};
 
 // where is the shift key
 #define SHIFT_COL 4
@@ -69,13 +69,13 @@ byte rowPins[NUM_ROWS] = {A0, A1, A2, A3, 2,3,4,5};
 void setup()
 {
   Serial.begin(9600);
-  lcd.init();                      // initialize the lcd 
+  lcd.init();                      // initialize the lcd
   // Print a message to the LCD.
   lcd.backlight();
-  lcd.setCursor(0,0);
+  lcd.setCursor(0, 0);
   lcd.print("MK61!");
 
-  
+
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
 
@@ -100,7 +100,7 @@ void setup()
 
 #if BYPASS_TIMER_ISR
   // disable timer 0 overflow interrupt (used for millis)
-  TIMSK0&=!(1<<TOIE0); // ++
+  TIMSK0 &= !(1 << TOIE0); // ++
 #endif
 }
 
@@ -108,7 +108,7 @@ void setup()
 /*               */
 /*    delayMs    */
 /*               */
-void delayMs(unsigned int ms) 
+void delayMs(unsigned int ms)
 {
   for (unsigned int i = 0; i < ms; i++)
   {
@@ -125,13 +125,13 @@ void loop()
   // check for shift
   bool shifted = false;
   bool keyPressed = false;
-  pinMode(rowPins[SHIFT_ROW], OUTPUT);
+ /* pinMode(rowPins[SHIFT_ROW], OUTPUT);
 
   if (digitalRead(colPins[SHIFT_COL]) == LOW)
   {
     shifted = true;
   }
-  pinMode(rowPins[SHIFT_ROW], INPUT);
+  pinMode(rowPins[SHIFT_ROW], INPUT);*/
 
   // foreach row
   for (byte r = 0; r < NUM_ROWS; r++)
@@ -152,7 +152,7 @@ void loop()
         if (count == DEBOUNCE_VALUE)
         {
           // first press
-          keyPressed = true;          
+          keyPressed = true;
           pressKey(r, c, shifted);
         }
         else if (count > DEBOUNCE_VALUE)
@@ -162,10 +162,10 @@ void loop()
           if (count % REPEAT_DELAY == 0)
           {
             // send repeat
-            keyPressed = true;          
+            keyPressed = true;
             pressKey(r, c, shifted);
             //pressKey(0, 0, false); // for testing, send 1 on the repeats rather than the key to distingush the repeats.
-          }  
+          }
         }
       }
       else
@@ -183,7 +183,7 @@ void loop()
   {
     // turn the LED on
     digitalWrite(LED_PIN, HIGH);
-  
+
 #if BYPASS_TIMER_ISR  // check if timer isr fixed.
     delayMs(20);
 #else
@@ -198,7 +198,7 @@ void loop()
 
 // Send the keypress
 void pressKey(byte r, byte c, bool shifted)
-{  
+{
   // which keybaord map to use?
   if (shifted)
   {
@@ -206,18 +206,20 @@ void pressKey(byte r, byte c, bool shifted)
     if (key > 0)
     {
       // specially defined key in the shifted bitmap
+      lcd.setCursor(0, 1);
       lcd.print(key);
-Serial.println(char(key));
-}
+      serialprintkey(key,r,c);
+    }
     else
     {
       // use the normal keymap and send the shift modifier
       key = keyMap[r][c];
       if (key > 0)
       {
-             lcd.print(key+":MOD_SHIFT_LEFT");
-Serial.println(char(key)+":MOD_SHIFT_LEFT");
-}
+      lcd.setCursor(0, 1);
+        lcd.print(key + ":MOD_SHIFT_LEFT");
+        serialprintkey(key,r,c);
+      }
     }
   }
   else
@@ -226,9 +228,19 @@ Serial.println(char(key)+":MOD_SHIFT_LEFT");
     if (key > 0)
     {
       // send the key
+      lcd.setCursor(0, 1);
       lcd.print(key);
-      Serial.println(char(key));
+      serialprintkey(key,r,c);
     }
   }
 }
 
+
+void serialprintkey(char key, int r, int c)
+{
+  Serial.println("-----------------------------");
+      Serial.println(key);
+      Serial.println(r);
+      Serial.println(c);
+  Serial.println("-----------------------------");
+  }
