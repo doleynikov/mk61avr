@@ -60,31 +60,32 @@ int sysPROGEND;
 int sysSTACKSTART, sysSTACKEND;
 int sysVARSTART, sysVAREND;
 int sysGOSUBSTART, sysGOSUBEND;
-
- const char  string_0[] PROGMEM = "OK";
- const char  string_1[] PROGMEM = "Bad num";
- const char  string_2[] PROGMEM = "Line too long";
- const char  string_3[] PROGMEM = "Unexpected input";
- const char  string_4[] PROGMEM = "Unterminated str";
- const char  string_5[] PROGMEM = "Missing bracket";
- const char  string_6[] PROGMEM = "Error in expr";
- const char  string_7[] PROGMEM = "Num.expr expected";
- const char  string_8[] PROGMEM = "String expr expected";
- const char  string_9[] PROGMEM = "Line number too big";
+//                                           1111111
+//                                  1234567890123456
+ const char  string_0[]  PROGMEM = "OK";
+ const char  string_1[]  PROGMEM = "Bad num";
+ const char  string_2[]  PROGMEM = "Line too long";
+ const char  string_3[]  PROGMEM = "Unexpected inp.";
+ const char  string_4[]  PROGMEM = "Unterminated str";
+ const char  string_5[]  PROGMEM = "Missing bracket";
+ const char  string_6[]  PROGMEM = "Error in expr";
+ const char  string_7[]  PROGMEM = "NumExpr expected";
+ const char  string_8[]  PROGMEM = "StrExpr expected";
+ const char  string_9[]  PROGMEM = "LineNum too big";
  const char  string_10[] PROGMEM = "Out of memory";
  const char  string_11[] PROGMEM = "Div by zero";
- const char  string_12[] PROGMEM = "Variable not found";
+ const char  string_12[] PROGMEM = "Var not found";
  const char  string_13[] PROGMEM = "Bad command";
- const char  string_14[] PROGMEM = "Bad line number";
+ const char  string_14[] PROGMEM = "Bad lineNum";
  const char  string_15[] PROGMEM = "Break pressed";
- const char  string_16[] PROGMEM = "NEXT without FOR";
+ const char  string_16[] PROGMEM = "NEXT-FOR";
  const char  string_17[] PROGMEM = "STOP";
  const char  string_18[] PROGMEM = "THEN-IF";
  const char  string_19[] PROGMEM = "RETURN-GOSUB";
  const char  string_20[] PROGMEM = "Bad array dims";
  const char  string_21[] PROGMEM = "Bad array index";
  const char  string_22[] PROGMEM = "Bad string index";
- const char  string_23[] PROGMEM = "Error in VAL input";
+ const char  string_23[] PROGMEM = "Err in VAL inp";
  const char  string_24[] PROGMEM = "Bad param";
 
 //PROGMEM const char *errorTable[] = {
@@ -130,9 +131,9 @@ PROGMEM const TokenTableEntry tokenTable[] = {
     {"STEP",TKN_FMT_PRE|TKN_FMT_POST}, {"NEXT", TKN_FMT_POST}, {"MOD",TKN_FMT_PRE|TKN_FMT_POST}, {"NEW",TKN_FMT_POST},
     {"GOSUB",TKN_FMT_POST}, {"RETURN",TKN_FMT_POST}, {"DIM", TKN_FMT_POST}, {"LEFT$",2|TKN_ARG1_TYPE_STR|TKN_RET_TYPE_STR},
     {"RIGHT$",2|TKN_ARG1_TYPE_STR|TKN_RET_TYPE_STR}, {"MID$",3|TKN_ARG1_TYPE_STR|TKN_RET_TYPE_STR}, {"CLS",TKN_FMT_POST}, {"PAUSE",TKN_FMT_POST},
-    {"POSITION", TKN_FMT_POST},  {"PIN",TKN_FMT_POST}, {"PINMODE", TKN_FMT_POST}, {"INKEY$", 0},
-    {"SAVE", TKN_FMT_POST}, {"LOAD", TKN_FMT_POST}, {"PINREAD",1}, {"ANALOGRD",1},
-    {"DIR", TKN_FMT_POST}, {"DELETE", TKN_FMT_POST}
+    /*{"POSITION", TKN_FMT_POST},*/  {"PIN",TKN_FMT_POST}, {"PINMODE", TKN_FMT_POST}, {"INKEY$", 0},
+    {"SAVE", TKN_FMT_POST}, {"LOAD", TKN_FMT_POST}, {"PINREAD",1}, {"ANALOGRD",1}
+    /*,{"DIR", TKN_FMT_POST}, {"DELETE", TKN_FMT_POST}*/
 };
 
 
@@ -1504,10 +1505,10 @@ int parseTwoIntCmd() {
         int second = (int)stackPopNum();
         int first = (int)stackPopNum();
         switch(op) {
- /*      POSITION не реализовано 
-  *        case TOKEN_POSITION: 
-            host_moveCursor(first,second); 
-            break;*/
+ //      POSITION не реализовано 
+ //         case TOKEN_POSITION: 
+ //           host_moveCursor(first,second); 
+ //           break;
         case TOKEN_PIN: 
             host_digitalWrite(first,second); 
             break;
@@ -1746,9 +1747,8 @@ int parseSimpleCmd() {
             case TOKEN_CLS:
                 host_cls();
                 break;
-            case TOKEN_DIR:
-
-                break;
+ //           case TOKEN_DIR:
+//                break;
         }
     }
     return 0;
@@ -1801,7 +1801,7 @@ int parseStmts()
         
         case TOKEN_LOAD:
         case TOKEN_SAVE:
-        case TOKEN_DELETE:
+//        case TOKEN_DELETE:
             ret = parseLoadSaveCmd();
             break;
         
@@ -1816,7 +1816,7 @@ int parseStmts()
         case TOKEN_CONT:
         case TOKEN_RETURN:
         case TOKEN_CLS:
-        case TOKEN_DIR:
+//        case TOKEN_DIR:
             ret = parseSimpleCmd();
             break;
             

@@ -1,13 +1,17 @@
 #include "host.h"
 #include "basic.h"
 
-#include <Keypad.h>
+
 
 #include <LiquidCrystal_I2C.h>
 #include <EEPROM.h>
 #define echo 1
+#include <Keypad.h>
 #define KEY_ENTER 13
 #define KEY_BRK '#'
+#define SYMBOL_SHIFT 1
+#define CAPS_SHIFT 2
+
 
 // Keyboard
 #define  ROWS  8 
@@ -16,12 +20,21 @@ char keys[ROWS][COLS] = {
   {'5', '4', '3', '2', '1'},
   {'T', 'R', 'E', 'W', 'Q'},
   {'G', 'F', 'D', 'S', 'A'},
-  {'V', 'C', 'X', 'Z', '#'},
+  {'V', 'C', 'X', 'Z', CAPS_SHIFT},
   {'6', '7', '8', '9', '0'},
   {'Y', 'U', 'I', 'O', 'P'},
   {'H', 'J', 'K', 'L', KEY_ENTER},
-  {'B', 'N', 'M', '.', ' '}
-
+  {'B', 'N', 'M', SYMBOL_SHIFT, ' '}
+};
+char keysSymbol[ROWS][COLS] = {
+  {'%', '$', '#', '@', '!'},
+  {'>', '<', 'E', 'W', 'Q'},
+  {'G', 'F', 'D', 'S', 'A'},
+  {'/', '?', 'X', ':', CAPS_SHIFT},
+  {'&', '\'', '(', ')', '_'},
+  {'Y', 'U', 'I', ';', '\"'},
+  {'H', '-', '+', '=', KEY_ENTER},
+  {'*', ',', '.', SYMBOL_SHIFT, ' '}
 };
 
 byte rowPins[ROWS] = {A0, A1, A2, A3, 2, 3, 4, 5}; //connect to the row pinouts of the keypad
@@ -31,7 +44,7 @@ Keypad keyboard = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-extern EEPROMClass EEPROM;
+//extern EEPROMClass EEPROM;
 int timer1_counter;
 volatile char flash = 0, redraw = 0;
 
