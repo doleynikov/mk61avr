@@ -45,7 +45,11 @@ byte colPins[NUM_COLS] = {8, 9, 10, 11, 12}; //connect to the column pinouts of 
 
 byte row;
 byte col;
+byte kb_row;
+byte kb_col;
 char keyPressed; //raw key from the first map
+char keyReleased; //key released
+
 byte shiftFlag = 0; //1-shift1, 2-shift2
 
 void setup() {
@@ -71,30 +75,30 @@ void setup() {
 char kbGet()
 {
   char lastkey = 0;
-  if (keyPressed)
+  if (keyReleased)
   {
     switch (shiftFlag)
     {
       case 0:
         {
-          lastkey = keys[row][col];
+          lastkey = keys[kb_row][kb_col];
         }
         break;
       case 1:
         {
-          lastkey = shift1_keys[row][col];
+          lastkey = shift1_keys[kb_row][kb_col];
           shiftFlag = 0;
         }
         break;
       case 2:
         {
-          lastkey = shift2_keys[row][col];
+          lastkey = shift2_keys[kb_row][kb_col];
           shiftFlag = 0;
         }
         break;
     }
   }
-  keyPressed = 0;
+  keyReleased = 0;
 
   return lastkey;
 }
@@ -110,39 +114,41 @@ int  iCnt = 0;
 char iKey = 0;
 #define KEY_CNT 10
 ISR(TIMER2_OVF_vect) {
-
-  for (byte r = 0 ; r < NUM_ROWS ; r++)
-  {
-    pinMode(rowPins[r], OUTPUT);
-    digitalWrite(rowPins[r], LOW);
-    for (byte c = 0 ; c < NUM_COLS ; c++)
+  if (keyPressed == 0) {
+      keyReleased = 0;
+    for (byte r = 0 ; r < NUM_ROWS ; r++)
     {
-      if (digitalRead(colPins[c]) == LOW)
+      pinMode(rowPins[r], OUTPUT);
+      digitalWrite(rowPins[r], LOW);
+      for (byte c = 0 ; c < NUM_COLS ; c++)
       {
-        keyPressed = keys[r][c];
-        if (keyPressed == iKey && iCnt++ < KEY_CNT) {
-//          keyPressed = 0;
-        }
-        else {
-          iKey = keyPressed;
-          iCnt = 0;
-        if (keyPressed == KEY_SHIFT1) {
-          keyPressed = 0;
-          shiftFlag = 1;
-        }
-        else if (keyPressed == KEY_SHIFT2) {
-          keyPressed = 0;
-          shiftFlag = 2;
-        }
-        else {
-          row = r;
-          col = c;
-        }
+        if (digitalRead(colPins[c]) == LOW)
+        {
+          keyPressed = keys[r][c];
+            iKey = keyPressed;
+            iCnt = 0;
+            if (keyPressed == KEY_SHIFT1) {
+              shiftFlag = 1;
+            }
+            else if (keyPressed == KEY_SHIFT2) {
+              shiftFlag = 2;
+            }
+            else {
+              row = r;
+              col = c;
+          }
         }
       }
+      pinMode(rowPins[r], INPUT);
     }
-    pinMode(rowPins[r], INPUT);
+
   }
+  else {
+    if (iKey){keyReleased=iKey;iKey=0;keyPressed=0;kb_row=row; kb_col=col;}
+    }
+
   TCNT2 = 255; //55;
 }
+
+
 
