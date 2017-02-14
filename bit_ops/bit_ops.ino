@@ -34,13 +34,10 @@ char a[ROWS][COLS] = {
 
 int i = 0;
 int j = 0;
+char keyPressed = 0;
 
 void setup() {
   Serial.begin(9600);
-}
-
-
-void loop() {
   DDRB = 0xFF;
   PORTB = 0xFF;
 
@@ -48,32 +45,32 @@ void loop() {
   PORTC = 0b00001111; //0x0F;
   DDRD = 0x00;
   PORTD = 0b00111100; //0x0F;
+  delay(10);
+}
 
 
-  while (1) {
+void loop() {
     for (i = 0; i < COLS; i++)
     {
       PORTB &= ~(1 << i);
       delay (20);
-      for (j = 0; j < ROWS/2; j++)
+      for (j = 0; j < ROWS / 2; j++)
       {
         if (!(PINC & (1 << j)))
         {
-          Serial.println(a[j][i]);
-
+          keyPressed = a[j][i];
         }
-        if (!(PIND & (1 << j + 2)))
+        else if (!(PIND & (1 << j + 2)))
         {
-          Serial.println(a[j + 4][i]);
-
+          keyPressed = a[j + 4][i];
+        }
+        else if (keyPressed != 0) {
+          Serial.println(keyPressed);
+          keyPressed = 0;
         }
       }
       PORTB |= (1 << i);
       delay(10);
     }
-
-  }
-
-  return 0;
 }
 
