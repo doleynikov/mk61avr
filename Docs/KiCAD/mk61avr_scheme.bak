@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:mk61avr_scheme-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -10,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -30,7 +30,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:mk61avr_scheme-cache
-EELAYER 27 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -67,7 +67,7 @@ MK52 keys
 Entry Wire Line
 	600  4985 700  4885
 $Comp
-L R R1
+L R-RESCUE-mk61avr_scheme R1
 U 1 1 4B0C0732
 P 1400 4885
 F 0 "R1" V 1480 4885 50  0000 C CNN
@@ -152,7 +152,7 @@ Entry Wire Line
 Entry Wire Line
 	600  5785 700  5685
 $Comp
-L R R4
+L R-RESCUE-mk61avr_scheme R4
 U 1 1 4AE804E0
 P 1400 6085
 F 0 "R4" V 1480 6085 50  0000 C CNN
@@ -163,7 +163,7 @@ F 3 "" H 1400 6085 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R3
+L R-RESCUE-mk61avr_scheme R3
 U 1 1 4AE804AA
 P 1400 5685
 F 0 "R3" V 1480 5685 50  0000 C CNN
@@ -174,7 +174,7 @@ F 3 "" H 1400 5685 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R2
+L R-RESCUE-mk61avr_scheme R2
 U 1 1 4AE80428
 P 1400 5285
 F 0 "R2" V 1480 5285 50  0000 C CNN
@@ -558,7 +558,7 @@ F 3 "" H 4369 2850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR5
+L GND-RESCUE-mk61avr_scheme #PWR5
 U 1 1 587DB8ED
 P 4370 4500
 F 0 "#PWR5" H 4370 4500 30  0001 C CNN
@@ -646,7 +646,7 @@ F 3 "" H 1292 3064 60  0000 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L GND #PWR2
+L GND-RESCUE-mk61avr_scheme #PWR2
 U 1 1 587DEABF
 P 1552 3072
 F 0 "#PWR2" H 1552 3072 30  0001 C CNN
@@ -766,7 +766,7 @@ MISO
 Text Label 5336 1100 0    60   ~ 0
 RST
 $Comp
-L GND #PWR3
+L GND-RESCUE-mk61avr_scheme #PWR3
 U 1 1 5880F0CB
 P 3370 2200
 F 0 "#PWR3" H 3370 2200 30  0001 C CNN
@@ -777,7 +777,7 @@ F 3 "" H 3370 2200 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR6
+L GND-RESCUE-mk61avr_scheme #PWR6
 U 1 1 588119AE
 P 6056 1180
 F 0 "#PWR6" H 6056 1180 30  0001 C CNN
@@ -788,7 +788,7 @@ F 3 "" H 6056 1180 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R9
+L R-RESCUE-mk61avr_scheme R9
 U 1 1 58811AF2
 P 4619 1430
 F 0 "R9" V 4699 1430 50  0000 C CNN
@@ -875,7 +875,7 @@ Entry Wire Line
 Entry Wire Line
 	7100 6085 7200 6185
 $Comp
-L R R6
+L R-RESCUE-mk61avr_scheme R6
 U 1 1 58870AF2
 P 6850 5285
 F 0 "R6" V 6930 5285 50  0000 C CNN
@@ -886,7 +886,7 @@ F 3 "" H 6850 5285 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R5
+L R-RESCUE-mk61avr_scheme R5
 U 1 1 58870D58
 P 6850 4885
 F 0 "R5" V 6930 4885 50  0000 C CNN
@@ -897,7 +897,7 @@ F 3 "" H 6850 4885 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R7
+L R-RESCUE-mk61avr_scheme R7
 U 1 1 58870D5E
 P 6850 5685
 F 0 "R7" V 6930 5685 50  0000 C CNN
@@ -908,7 +908,7 @@ F 3 "" H 6850 5685 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R8
+L R-RESCUE-mk61avr_scheme R8
 U 1 1 58870D64
 P 6850 6085
 F 0 "R8" V 6930 6085 50  0000 C CNN
@@ -1001,68 +1001,28 @@ Wire Wire Line
 	3750 4885 3750 4985
 Connection ~ 4100 5585
 Wire Wire Line
-	4100 5185 4100 5585
+	4100 5185 4100 6685
 Wire Wire Line
-	4100 5585 4100 5985
-Wire Wire Line
-	4100 5985 4100 6385
-Wire Wire Line
-	4100 6385 4100 6685
-Wire Wire Line
-	3950 5185 4100 5185
-Wire Wire Line
-	4100 5185 4450 5185
-Wire Wire Line
-	4450 5185 4600 5185
+	3950 5185 4600 5185
 Connection ~ 3100 5585
 Wire Wire Line
-	3100 4785 3100 5185
-Wire Wire Line
-	3100 5185 3100 5585
-Wire Wire Line
-	3100 5585 3100 5985
-Wire Wire Line
-	3100 5985 3100 6385
-Wire Wire Line
-	3100 6385 3100 6685
+	3100 4785 3100 6685
 Wire Wire Line
 	3100 5185 2950 5185
 Connection ~ 2150 5585
 Wire Wire Line
-	2150 4635 2150 5185
-Wire Wire Line
-	2150 5185 2150 5585
-Wire Wire Line
-	2150 5585 2150 5985
-Wire Wire Line
-	2150 5985 2150 6385
-Wire Wire Line
-	2150 6385 2150 6685
+	2150 4635 2150 6685
 Wire Wire Line
 	2150 5185 2000 5185
 Wire Wire Line
-	4250 5285 4700 5285
-Wire Wire Line
-	4700 5285 5200 5285
-Wire Wire Line
-	5200 5285 5650 5285
-Wire Wire Line
-	5650 5285 6150 5285
-Wire Wire Line
-	6150 5285 6600 5285
+	4250 5285 6600 5285
 Connection ~ 6500 5985
 Wire Wire Line
 	6500 5985 6350 5985
 Wire Wire Line
 	6000 6385 5850 6385
 Wire Wire Line
-	6000 4685 6000 5185
-Wire Wire Line
-	6000 5185 6000 5585
-Wire Wire Line
-	6000 5585 6000 5985
-Wire Wire Line
-	6000 5985 6000 6385
+	6000 4685 6000 6385
 Wire Wire Line
 	6000 5585 5850 5585
 Connection ~ 5550 5985
@@ -1180,25 +1140,9 @@ Wire Wire Line
 	5650 6085 5650 6185
 Connection ~ 5650 6085
 Wire Wire Line
-	1650 6085 1800 6085
+	1650 6085 3750 6085
 Wire Wire Line
-	1800 6085 2300 6085
-Wire Wire Line
-	2300 6085 2750 6085
-Wire Wire Line
-	2750 6085 3250 6085
-Wire Wire Line
-	3250 6085 3750 6085
-Wire Wire Line
-	4250 6085 4700 6085
-Wire Wire Line
-	4700 6085 5200 6085
-Wire Wire Line
-	5200 6085 5650 6085
-Wire Wire Line
-	5650 6085 6150 6085
-Wire Wire Line
-	6150 6085 6600 6085
+	4250 6085 6600 6085
 Wire Wire Line
 	2150 5985 2000 5985
 Connection ~ 2150 5985
@@ -1219,11 +1163,7 @@ Connection ~ 4100 6385
 Wire Wire Line
 	4450 5585 4600 5585
 Wire Wire Line
-	4600 5185 4600 5585
-Wire Wire Line
-	4600 5585 4600 5985
-Wire Wire Line
-	4600 5985 4600 6385
+	4600 5185 4600 6385
 Wire Wire Line
 	4600 6385 4450 6385
 Wire Wire Line
@@ -1232,13 +1172,7 @@ Connection ~ 5050 5985
 Wire Wire Line
 	5550 5585 5400 5585
 Wire Wire Line
-	5550 4785 5550 5185
-Wire Wire Line
-	5550 5185 5550 5585
-Wire Wire Line
-	5550 5585 5550 5985
-Wire Wire Line
-	5550 5985 5550 6385
+	5550 4785 5550 6385
 Wire Wire Line
 	5550 6385 5400 6385
 Wire Wire Line
@@ -1247,45 +1181,15 @@ Connection ~ 6000 5985
 Wire Wire Line
 	6500 5585 6350 5585
 Wire Wire Line
-	6500 4635 6500 5185
-Wire Wire Line
-	6500 5185 6500 5585
-Wire Wire Line
-	6500 5585 6500 5985
-Wire Wire Line
-	6500 5985 6500 6385
+	6500 4635 6500 6385
 Wire Wire Line
 	6500 6385 6350 6385
 Wire Wire Line
-	1650 5685 1800 5685
+	1650 5685 3750 5685
 Wire Wire Line
-	1800 5685 2300 5685
+	4250 5685 6600 5685
 Wire Wire Line
-	2300 5685 2750 5685
-Wire Wire Line
-	2750 5685 3250 5685
-Wire Wire Line
-	3250 5685 3750 5685
-Wire Wire Line
-	4250 5685 4700 5685
-Wire Wire Line
-	4700 5685 5200 5685
-Wire Wire Line
-	5200 5685 5650 5685
-Wire Wire Line
-	5650 5685 6150 5685
-Wire Wire Line
-	6150 5685 6600 5685
-Wire Wire Line
-	1650 4885 1800 4885
-Wire Wire Line
-	1800 4885 2300 4885
-Wire Wire Line
-	2300 4885 2750 4885
-Wire Wire Line
-	2750 4885 3250 4885
-Wire Wire Line
-	3250 4885 3750 4885
+	1650 4885 3750 4885
 Connection ~ 2750 4885
 Wire Wire Line
 	2750 4885 2750 4985
@@ -1301,93 +1205,23 @@ Connection ~ 3250 4885
 Wire Wire Line
 	2500 5185 2650 5185
 Wire Wire Line
-	2650 4685 2650 5185
-Wire Wire Line
-	2650 5185 2650 5585
-Wire Wire Line
-	2650 5585 2650 5985
-Wire Wire Line
-	2650 5985 2650 6385
-Wire Wire Line
-	2650 6385 2650 6685
+	2650 4685 2650 6685
 Connection ~ 2650 5585
 Wire Wire Line
 	3450 5185 3600 5185
 Wire Wire Line
-	3600 4835 3600 5185
-Wire Wire Line
-	3600 5185 3600 5585
-Wire Wire Line
-	3600 5585 3600 5985
-Wire Wire Line
-	3600 5985 3600 6385
-Wire Wire Line
-	3600 6385 3600 6685
+	3600 4835 3600 6685
 Connection ~ 3600 5585
 Wire Bus Line
-	600  4935 600  4985
-Wire Bus Line
-	600  4985 600  5385
-Wire Bus Line
-	600  5385 600  5785
-Wire Bus Line
-	600  5785 600  6185
-Wire Bus Line
-	600  6185 600  6785
+	600  4935 600  6785
 Wire Wire Line
 	1150 5285 700  5285
 Wire Wire Line
 	1150 6085 700  6085
 Wire Bus Line
-	600  7600 2050 7600
+	600  7600 6900 7600
 Wire Bus Line
-	2050 7600 2550 7600
-Wire Bus Line
-	2550 7600 3000 7600
-Wire Bus Line
-	3000 7600 3500 7600
-Wire Bus Line
-	3500 7600 4000 7600
-Wire Bus Line
-	4000 7600 6900 7600
-Wire Bus Line
-	6900 900  6900 1000
-Wire Bus Line
-	6900 1000 6900 1850
-Wire Bus Line
-	6900 1850 6900 1950
-Wire Bus Line
-	6900 1950 6900 2050
-Wire Bus Line
-	6900 2050 6900 2150
-Wire Bus Line
-	6900 2150 6900 2250
-Wire Bus Line
-	6900 2250 6900 2350
-Wire Bus Line
-	6900 2350 6900 2550
-Wire Bus Line
-	6900 2550 6900 2650
-Wire Bus Line
-	6900 2650 6900 2950
-Wire Bus Line
-	6900 2950 6900 3050
-Wire Bus Line
-	6900 3050 6900 3250
-Wire Bus Line
-	6900 3250 6900 3350
-Wire Bus Line
-	6900 3350 6900 3450
-Wire Bus Line
-	6900 3450 6900 3550
-Wire Bus Line
-	6900 3550 6900 3650
-Wire Bus Line
-	6900 3650 6900 3750
-Wire Bus Line
-	6900 3750 6900 3850
-Wire Bus Line
-	6900 3850 6900 4700
+	6900 900  6900 4700
 Wire Wire Line
 	5369 1750 6799 1750
 Wire Wire Line
@@ -1455,15 +1289,7 @@ Wire Wire Line
 Wire Wire Line
 	6800 3150 5370 3150
 Wire Wire Line
-	1650 5285 1800 5285
-Wire Wire Line
-	1800 5285 2300 5285
-Wire Wire Line
-	2300 5285 2750 5285
-Wire Wire Line
-	2750 5285 3250 5285
-Wire Wire Line
-	3250 5285 3750 5285
+	1650 5285 3750 5285
 Connection ~ 4600 5585
 Wire Wire Line
 	4900 5185 5050 5185
@@ -1480,15 +1306,7 @@ Connection ~ 6500 5585
 Wire Wire Line
 	4250 4985 4250 4885
 Wire Wire Line
-	4250 4885 4700 4885
-Wire Wire Line
-	4700 4885 5200 4885
-Wire Wire Line
-	5200 4885 5650 4885
-Wire Wire Line
-	5650 4885 6150 4885
-Wire Wire Line
-	6150 4885 6600 4885
+	4250 4885 6600 4885
 Wire Wire Line
 	4700 4985 4700 4885
 Connection ~ 4700 4885
@@ -1507,17 +1325,9 @@ Connection ~ 6150 4885
 Wire Bus Line
 	6900 6785 6900 6235
 Wire Bus Line
-	6900 6235 7200 6235
+	7200 6235 6900 6235
 Wire Bus Line
-	7200 6235 7200 6185
-Wire Bus Line
-	7200 6185 7200 5785
-Wire Bus Line
-	7200 5785 7200 5385
-Wire Bus Line
-	7200 5385 7200 4985
-Wire Bus Line
-	7200 4985 7200 4685
+	7200 4685 7200 6235
 Wire Bus Line
 	7200 4685 6900 4685
 Connection ~ 4450 5185
@@ -1539,13 +1349,7 @@ Wire Wire Line
 Connection ~ 6500 5185
 Connection ~ 2150 5185
 Wire Wire Line
-	5050 4835 5050 5185
-Wire Wire Line
-	5050 5185 5050 5585
-Wire Wire Line
-	5050 5585 5050 5985
-Wire Wire Line
-	5050 5985 5050 6385
+	5050 4835 5050 6385
 Wire Wire Line
 	5370 3750 6800 3750
 Wire Bus Line
@@ -1567,9 +1371,7 @@ VCC
 Text Label 3470 1950 0    60   ~ 0
 VCC
 Wire Wire Line
-	4520 1100 4869 1100
-Wire Wire Line
-	4869 1100 5336 1100
+	4520 1100 5336 1100
 Wire Wire Line
 	4869 1430 4869 1100
 Connection ~ 4869 1100
