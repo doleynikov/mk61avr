@@ -56,6 +56,10 @@ byte colPins[NUM_COLS] = {8, 9, 10, 11, 12}; //connect to the column pinouts of 
 /*
    пока используем atmega8
 
+команды типа ПП-БП - параметр из двух цифр длина команды 2 байта - код команды и адрес перехода
+команды типа X-П - второе нажатие - параметр - номер регистра
+
+
    клавиатура на основе mk52
    F   ШГ>  П->X   7   8   9   -   /
    K   ШГ<  X->П   4   5   6   +
@@ -159,10 +163,64 @@ void setup() {
 }
 
 ISR (TIMER1_COMPA_vect) {
-  digitalWrite(8, !digitalRead(8));
+  //digitalWrite(8, !digitalRead(8));
   //PORTB ^= _BV(PB0); // as digitalWrite(8,x) is an Arduino
   //function, direct writing to the port may be preferable
+  kb_scan();
 }
+
+
+#define KEY_ENTER 13
+#define KEY_BRK '#'
+#define SYMBOL_SHIFT 1
+#define CAPS_SHIFT 2
+
+
+// Keyboard
+#define  ROWS  8
+#define  COLS  5
+char a[ROWS][COLS] = {
+  {'5', '4', '3', '2', '1'},
+  {'T', 'R', 'E', 'W', 'Q'},
+  {'G', 'F', 'D', 'S', 'A'},
+  {'V', 'C', 'X', 'Z', CAPS_SHIFT},
+  {'6', '7', '8', '9', '0'},
+  {'Y', 'U', 'I', 'O', 'P'},
+  {'H', 'J', 'K', 'L', KEY_ENTER},
+  {'B', 'N', 'M', SYMBOL_SHIFT, ' '}
+};
+
+int i = 0;
+int j = 0;
+char keyPressed = 0;
+void  kb_scan(){
+//  lastCmd=0;
+//  mode=0;
+//  cmdReady=0;
+
+    for (i = 0; i < COLS; i++)
+    {
+      PORTB &= ~(1 << i);
+      delay (20);
+      for (j = 0; j < ROWS / 2; j++)
+      {
+        if (!(PINC & (1 << j)))
+        {
+          keyPressed = a[j][i];
+        }
+        else if (!(PIND & (1 << j + 2)))
+        {
+          keyPressed = a[j + 4][i];
+        }
+        else if (keyPressed != 0) {
+          Serial.println(keyPressed);
+          keyPressed = 0;
+        }
+      }
+      PORTB |= (1 << i);
+      delay(10);
+    }  
+  }
 
 void loop() {//0 - интерактивный режим, 1- выполнение программы, 2 - ввод программы
   if (cmdReady) {
@@ -189,11 +247,13 @@ while (pp<MEMSIZE){
   
   execOne(mem[pp++]);
 }
+return 0;
 }
 
 uint8_t storeOne(uint8_t op) { // записать в програмную память одну команду программы
   if (op<0xff)//заглушка для проверки, что команда подходит для режима программирования
   {mem[pp++]=op;}
+  return 0;
 }
 uint8_t execOne(uint8_t op) { // выполнить одну команду программы
 uint8_t ret=0;
