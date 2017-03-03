@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1488540295 source:/home/dimao/git/mk61-avr/mk61emu/codeblocks/mk61emu/fuse.c
+	<avr/io.h>
+
+1488553144 source:/home/dimao/git/mk61-avr/mk61emu/codeblocks/mk61emu/main.c
+	<avr/io.h>
+	<util/delay.h>
+	<avr/interrupt.h>
+	<stdlib.h>
+	"scancode_dc.h"
+
+1488460904 /home/dimao/git/mk61-avr/mk61emu/codeblocks/mk61emu/scancode_dc.h
+
