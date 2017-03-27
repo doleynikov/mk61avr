@@ -63,12 +63,13 @@ uint8_t i = 0;
 uint8_t j = 0;
 
 static uint8_t CharBuffer=0;
-static uint8_t row=0;
-static uint8_t col=0;
-static uint8_t oldRow=0;
-static uint8_t oldCol=0;
+static uint8_t row=255;
+static uint8_t col=255;
+static uint8_t oldRow=255;
+static uint8_t oldCol=255;
 static uint8_t shift=0B00000000;
 static uint8_t keyPressed=0;
+static uint8_t keyReleased=255;
 
 uint8_t getScanCode(uint8_t r,uint8_t c)
 {
@@ -104,41 +105,47 @@ ISR (TIMER2_COMPA_vect)
 {
 //    Serial.println(".");
     // Обработчик прерывания таймера 2
+    col=255;
+    row=255;
     for (i = 0; i < COLS; i++)
-    {col=i;
+    {
         PORTB &= ~(1 << i);
         delay (20);
         for (j = 0; j < ROWS / 2; j++)
         {
             if (!(PINC & (1 << j)))
             {
-                row=j;
+                row=j;col=i;
                 keyPressed = 1;
             }
             else if (!(PIND & (1 << (j + 2))))
             {
-                row=j+4;
+                row=j+4;col=i;
                 keyPressed = 1;
             }
-            else keypressed=0; // клавиши не нажаты
-
-            if (keyPressed != 0 && (col != oldCol || row !=oldRow))
-            {
-                
-                    uint8_t key=getScanCode(row, col);
-                    if (key>0) {CharBuffer=key; oldRow=row; oldCol=col;}
-                   
-/*               Serial.print(CharBuffer);
-               Serial.print(" -- row=");
-               Serial.print(row);
-               Serial.print(" -- col=");
-               Serial.println(col);*/
-            }
-            keyPressed = 0;
         }
         PORTB |= (1 << i);
         delay(10);
     }
+//    Serial.println(String(row)+" "+String(col)+" "+String(keyPressed));
+       if (keyPressed != 0 )
+            {
+                    oldRow=row; 
+                    oldCol=col;
+                    keyReleased=1; //не отпущена
+                    keyPressed=0;// готовы к следующему циклу чтения
+            }
+           else if(keyReleased=1) // клавиша не нажата но была нажата на предыдущем цикле
+           { 
+            keyReleased = 255; //для следующего нажатия
+           uint8_t key=getScanCode(oldRow, oldCol);
+           CharBuffer = key;
+                    oldRow=255;row=255; //сбросим счетчики строки и столбца и промежуточное хранилище
+                    oldCol=255;col=255;
+           
+           }
+
+    
 }
 
 
