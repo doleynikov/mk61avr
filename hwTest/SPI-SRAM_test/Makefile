@@ -1,7 +1,7 @@
 DEVICE     = atmega328p
 CLOCK      = 16000000
 
-AVRDUDE = /home/vitali/Downloads/arduino-1.8.1/hardware/tools/avr/bin/avrdude -C/home/vitali/Downloads/arduino-1.8.1/hardware/tools/avr/etc/avrdude.conf -v -patmega328p -carduino -P/dev/ttyUSB0 -b57600 -D
+AVRDUDE = <Copy here a complete output string from Arduino-IDE. To do that enable 'Show verbose output during upload' in Arduino IDE Preferences>
 
 OBJECTS    = spisramtest.o
 
