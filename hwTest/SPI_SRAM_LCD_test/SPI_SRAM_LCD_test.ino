@@ -15,6 +15,8 @@
 #include <SPI.h>
 #include <LiquidCrystal_I2C.h>
 
+//#define ENABLE_SERIAL_CONSOLE                     // Uncomment for Serial console prints
+
 #if defined(ARDUINO) && ARDUINO >= 100
 #define printByte(args)  write(args);
 #else
@@ -31,6 +33,8 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);     // Set the LCD address to 0x27 for a 16 chars and 2 line display
 const float v_coeff = 1.5/1012;
+
+const char fw_version[]= {'0','.','3', 0};      // Version number of firmvare
 
 uint8_t column_0[8]  = {0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10};
 uint8_t column_1[8]  = {0x8, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8};
@@ -80,9 +84,11 @@ void setup(void)
     uint32_t i;
     uint8_t r_value, w_value;
     uint8_t ram_ok = 1;
- 
+
+#ifdef ENABLE_SERIAL_CONSOLE
     Serial.begin(19200);
     while (!Serial);
+#endif
     SPI.begin();
     lcd.init();
 
@@ -92,7 +98,10 @@ void setup(void)
     lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("SRAM test");
+#ifdef ENABLE_SERIAL_CONSOLE
     Serial.println("23LC1024 RAM test started");
+#endif
+    
     for (i = 0; i < MAX_SIZE_23LC1024_SRAM; i++)
     {
         w_value = 0;
@@ -132,9 +141,11 @@ void setup(void)
         }
         
         if((i % 4096) == 0)
-        {         
+        {
+#ifdef ENABLE_SERIAL_CONSOLE
             Serial.print("Passed bytes: ");
             Serial.println(i);
+#endif
             lcd.setCursor(0,1);
             lcd.print("bytes Ok: ");
             lcd.print(i);
@@ -143,16 +154,25 @@ void setup(void)
 
     if(ram_ok == 0)
     {
+#ifdef ENABLE_SERIAL_CONSOLE
         Serial.print("SRAM error at ");
         Serial.print(i);
         Serial.print(" ");
         Serial.print(w_value);
         Serial.print(" != ");
         Serial.println(r_value);
+#endif
+        lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("SRAM error at");
+        lcd.setCursor(0,1);
+        lcd.print(i);   
     }
     else
     {
+#ifdef ENABLE_SERIAL_CONSOLE
         Serial.println("SRAM test passed");  
+#endif
         lcd.clear();
         lcd.setCursor(0,0);
         lcd.print("SRAM test");
@@ -175,15 +195,16 @@ void setup(void)
     delay(4000); 
     lcd.clear();
 
-   lcd.setCursor(0,0);
-   lcd.backlight();
-   lcd.print("LCD pxl test");
-   delay(2000);
+    lcd.setCursor(0,0);
+    lcd.backlight();
+    lcd.print("LCD pixels test");
+    delay(2000);
 
-   lcd.clear();
-   counter = 0;   
+    lcd.clear();
+    counter = 0;   
 }
- 
+
+
 void loop() 
 {
     int adc_value;
@@ -211,7 +232,7 @@ void loop()
                     lcd.printByte(m);
                 }
 
-                delay(800);
+                delay(500);
             }
         }
         else
@@ -236,7 +257,7 @@ void loop()
                     lcd.printByte(m);
                 }
 
-                delay(800);
+                delay(500);
             }
         }
 
@@ -254,11 +275,12 @@ void loop()
         memset(buf, 0, sizeof(buf));
         lcd.clear();
         lcd.setCursor(0,0);
-        lcd.print("HW tester v.0.2");
+        lcd.print("HW tester v.");
+        lcd.print(fw_version);
         sprintf(buf, "ADC:%d Bat:%d.%01d", adc_value, (int)voltage, (int)(voltage*100)%100);
         lcd.setCursor(0,1);
         lcd.print(buf);
-        delay(10000);  
+        delay(5000);  
         //Serial.print("Analog value: ");
         //Serial.println(adc_value);
     }
